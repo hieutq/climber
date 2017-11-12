@@ -1,0 +1,101 @@
+<h2>お問い合わせ</h2>
+<div class="main_box">
+
+<form method="post" action="./?mode=contact">
+
+<table border="0" cellspacing="0" cellpadding="0" class="mailform" summary="mailform main">
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />お名前</th>
+<td><input type="text" name="name" size="20" value="<?=$dsp[ 'name' ]?>" <?=$err_style1[ 'name' ]?> />
+<div class="mfp_err"<?=$err_style2[ 'name' ]?>><?=$err_msg[ 'name' ]?></div></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th>フリガナ</th>
+<td><input type="text" name="kana" size="20" value="<?=$dsp[ 'kana' ]?>"  <?=$err_style1[ 'kana' ]?>/></td>
+</tr>
+<tr class="mfptr">
+<th>性別</th>
+<td>
+	<ul>
+		<li>
+		<label for="male" id="male_label" class="mfp">
+		<input type="radio" name="sex" id="male" value="1" class="mfp" <?=$dsp[ 'sex_checked' ][1]?> />男性
+		</label>
+		</li>
+		<li>
+		<label for="female" id="female_label" class="mfp">
+		<input type="radio" name="sex" id="female" value="2" class="mfp" <?=$dsp[ 'sex_checked' ][2]?> />女性
+		</label>
+		</li>
+	</ul>
+</div>
+</td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />メールアドレス</th>
+<td><input type="text" name="mail" value="<?=$dsp[ 'mail' ]?>" size="40"  <?=$err_style1[ 'mail' ]?>/>
+<div class="mfp_err" <?=$err_style2[ 'mail' ]?> ><?=$err_msg[ 'mail' ]?></div></td>
+</tr>
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />確認のためもう一度</th>
+<td><input type="text" name="mail_check" value="<?=$dsp[ 'mail_check' ]?>" size="40" <?=$err_style1[ 'mail_check' ]?> />
+<div class="mfp_err" <?=$err_style2[ 'mail_check' ]?>><?=$err_msg[ 'mail_check' ]?></div></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th>電話番号</th>
+<td><input type="text" name="tel" value="<?=$dsp[ 'tel' ]?>" size="12"  <?=$err_style1[ 'tel' ]?>/><div class="mfp_err"<?=$err_style2[ 'tel' ]?>><?=$err_msg[ 'tel' ]?></div></td>
+</tr>
+<tr class="mfptr">
+<th>郵便番号</th>
+<td>
+<input type="text" name="zip" size="8" value="<?=$dsp[ 'zip' ]?>"   <?=$err_style1[ 'zip' ]?>/>
+<a href="http://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号を調べる</a>
+<div class="mfp_err"<?=$err_style2[ 'zip' ]?>><?=$err_msg[ 'zip' ]?></div></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th>ご住所</th>
+<td><ol>
+<li> <span>都道府県</span>
+<select name="add1" id="mfp_el07" class="mfp">
+<option value="">【選択して下さい】</option>
+<?=
+html_options( 
+	$op_arr = $add1_options,
+	$selected= $dsp[ 'add1' ]
+);
+?>
+</select>
+</li>
+<li><span>市区町村</span>
+<input type="text" name="add2" value="<?=$dsp[ 'add2' ]?>" size="50"  <?=$err_style1[ 'add2' ]?>/>
+</li>
+<li><span>丁目番地</span>
+<input type="text" name="add3" value="<?=$dsp[ 'add3' ]?>" size="50"  <?=$err_style1[ 'add3' ]?>/>
+</li>
+</ol></td>
+</tr>
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />ご用件</th>
+<td><textarea name="cmnt" id="mfp_el10" rows="10" cols="60" <?=$err_style1[ 'cmnt' ]?>><?=$dsp[ 'cmnt' ]?></textarea>
+<div class="mfp_err" <?=$err_style2[ 'cmnt' ]?>><?=$err_msg[ 'cmnt' ]?></div></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />送信確認</th>
+<td><label for="send_confirm" id="send_confirm_label" class="mfp">
+<input type="checkbox" id="send_confirm" name="check" value="1" class="mfp" <?=$dsp[ 'check_checked' ]?>/>
+上記送信内容を確認したらチェックを入れてください</label>
+<div class="mfp_err" <?=$err_style2[ 'check' ]?>><?=$err_msg[ 'check' ]?></div></td>
+</tr>
+</table>
+<div id="mfp_buttons">
+<ul>
+<li>
+<input type="submit" name="RESET" value=" "  id="button_mfp_reset" onmouseover="this.style.background='url(images/mfp_reset_over.gif)'" onmouseout="this.style.background='url(images/mfp_reset.gif)'" />
+</li>
+<li>
+<input type="submit" name="CONFIRM" value=" " id="button_mfp_goconfirm" onmouseover="this.style.background='url(images/mfp_goconfirm_over.gif)'" onmouseout="this.style.background='url(images/mfp_goconfirm.gif)'" />
+</li>
+</ul>
+</div>
+</form>
+</div>

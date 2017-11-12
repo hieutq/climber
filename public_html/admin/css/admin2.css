@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.comment_msg {
+	color: #179ee4;
+	font-weight: bold;
+}
+
+.blue {
+	color: #179ee4;
+}
+
+.min {
+	font-size: 11px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+table.ubar tr.colored td {
+	background: #fff3f7;
+}
+
+/* 中のテーブル */
+table.inner_tbl {
+	width: 530px;
+	margin-left: 20px;
+	border-collapse: collapse;
+}
+
+table.inner_tbl td.index_col {
+	width: 130px;
+
+	white-space: nowrap;
+	border-top: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	border-right: none;
+	border-left: none;
+}
+
+table.inner_tbl td.value_col {
+	width: 400px;
+	border-top: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	border-right: none;
+	border-left: none;
+}
+
+
+/* 小見出し */
+p.mini_title {
+	margin: 10px 0 10px 20px;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+p.top_info_text {
+	color: #3a89cc;
+}
+
+
+

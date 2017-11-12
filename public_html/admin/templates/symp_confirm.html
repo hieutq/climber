@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">シンポジウム・セミナー情報 編集</div>
+<form method="POST" action="<?=$action?>">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<p class="mini_title">▼確認して下さい</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col">名称：</td>
+		<td class="value_col"><?=$dsp['symp_name']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">サブタイトル：</td>
+		<td class="value_col"><?=$dsp['symp_subtitle']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">主催：</td>
+		<td class="value_col"><?=$dsp['symp_syusai']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">後援：</td>
+		<td class="value_col"><?=$dsp['symp_kouen']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">協賛：</td>
+		<td class="value_col"><?=$dsp['symp_kyousan']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">日時（表示用）：</td>
+		<td class="value_col"><?=$dsp['symp_date3_text']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">会場：</td>
+		<td class="value_col"><?=$dsp['symp_place']?></td>
+	<tr>
+	<tr>
+		<td class="index_col">参加費（表示用）：</td>
+		<td class="value_col"><?=$dsp['symp_price_text']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">定員：</td>
+		<td class="value_col"><?=$dsp['symp_capacity']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">概要：</td>
+		<td class="value_col"><?=$dsp['symp_biko01']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">詳細：</td>
+		<td class="value_col"><?=$dsp['symp_biko02']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">世話人：</td>
+		<td class="value_col"><?=$symp_sewa?></td>
+	</tr>
+	<tr>
+		<td class="index_col">申込開始<br>(システム用)：</td>
+		<td class="value_col"><?=$symp_date1?></td>
+	</tr>
+	<tr>
+		<td class="index_col">申込締切<br>(システム用)：</td>
+		<td class="value_col"><?=$symp_date2?></td>
+	</tr>
+	<tr>
+		<td class="index_col">開催<br>(システム用)：</td>
+		<td class="value_col"><?=$symp_date3?></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">表示設定：</td>
+		<td class="value_col"><?=$view_status_options[$dsp[ 'view_status' ]]?></td>
+	</tr>
+	<tr>
+		<td class="index_col">料金設定<br>(システム用)：</td>
+		<td class="value_col">
+<?php
+	reset( $member_kubun01_type );
+	while( list( $key, $val ) = each( $member_kubun01_type ) ) {
+?>
+<?=$val?>：<?=$dsp['price1'][$key]?>円<br>
+<?php	
+	}
+?>
+		</td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">支払方法表示：</td>
+		<td class="value_col"><?=$view_status_options[$dsp[ 'pay_way_view_status' ]]?></td>
+	</tr>
+</table>
+<br>
+
+<br>
+<input type="hidden" name="symp_id" value="<?=$dsp['symp_id']?>">
+<br>
+
+
+<br>
+
+<br>
+<div style="text-align: center;">
+<input type="submit" value="<?=$submit?>" name="OK_2">
+<input type="submit" value="<?=$submit_back?>" name="BACK">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

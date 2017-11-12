@@ -1,0 +1,17 @@
+RewriteEngine on
+RewriteBase /alma
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([0-9a-zA-Z_\-]+)\.html$ $1\.php [L]
+php_flag display_errors 'On'
+RewriteRule ^links$ link\.php [QSA,L]
+RewriteRule ^search$ search\.php [QSA,L]
+RewriteRule ^what$ ?p=2 [QSA,L]
+RewriteRule ^international$ ?p=3 [QSA,L]
+RewriteRule ^domestic$ ?p=4 [QSA,L]
+RewriteRule ^collaborations$ ?p=5 [QSA,L]
+RewriteRule ^bulletinboard$ ?p=6 [QSA,L]
+RewriteRule ^resource$ ?p=7 [QSA,L]
+RewriteRule ^link-Univ$ ?p=9 [QSA,L]
+RewriteRule ^link-org$ ?p=10 [QSA,L]
+RewriteRule ^link-RI$ ?p=11 [QSA,L]

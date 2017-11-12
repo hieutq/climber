@@ -1,0 +1,257 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">シンポジウム参加者情報 編集</div>
+<form method="POST" action="<?=$action?>">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<p class="mini_title">▼シンポジウム参加者情報</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150">会員番号：</td>
+		<td class="value_col"><input type="text" name="member_userid" value="<?=$dsp['member_userid']?>" style="width: 100px;">&nbsp;&nbsp;&nbsp;<input name="MEMBER_READ" type="submit" value=" 会員番号から情報読込 "></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">氏名：</td>
+		<td class="value_col"><input type="text" name="member_name" value="<?=$dsp['member_name']?>" style="width: 100px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">かな：</td>
+		<td class="value_col"><input type="text" name="member_kana" value="<?=$dsp['member_kana']?>" style="width: 120px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">勤務先/学校：</td>
+		<td class="value_col"><input type="text" name="member_info01" value="<?=$dsp['member_info01']?>" style="width: 150px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">所属：</td>
+		<td class="value_col"><input type="text" name="member_info02" value="<?=$dsp['member_info02']?>" style="width: 150px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">メールアドレス：</td>
+		<td class="value_col"><input type="text" name="member_mail" value="<?=$dsp['member_mail']?>" style="width: 250px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">郵便番号：</td>
+		<td class="value_col"><input type="text" name="member_zip1" value="<?=$dsp['member_zip1']?>" style="width: 60px;">-<input type="text" name="member_zip2" value="<?=$dsp['member_zip2']?>" style="width: 60px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">住所：</td>
+		<td class="value_col"><input type="text" name="member_address" value="<?=$dsp['member_address']?>" style="width: 300px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">電話番号：</td>
+		<td class="value_col"><input type="text" name="member_tel" value="<?=$dsp['member_tel']?>" style="width: 200px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">FAX番号：</td>
+		<td class="value_col"><input type="text" name="member_fax" value="<?=$dsp['member_fax']?>" style="width: 200px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">区分：</td>
+		<td class="value_col">
+		<select name="member_kubun01">
+<?=
+	html_options(
+			$op_arr = $member_kubun01_type,
+			$selected = $dsp['member_kubun01']
+		);
+?>
+		</select>
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<p class="mini_title">▼紹介者情報</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150">氏名：</td>
+		<td class="value_col"><input type="text" name="intro_name" value="<?=$dsp['intro_name']?>" style="width: 100px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">勤務先/学校：</td>
+		<td class="value_col"><input type="text" name="intro_info01" value="<?=$dsp['intro_info01']?>" style="width: 150px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">所属：</td>
+		<td class="value_col"><input type="text" name="intro_info02" value="<?=$dsp['intro_info02']?>" style="width: 150px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">郵便番号：</td>
+		<td class="value_col"><input type="text" name="intro_zip1" value="<?=$dsp['intro_zip1']?>" style="width: 60px;">-<input type="text" name="intro_zip2" value="<?=$dsp['intro_zip2']?>" style="width: 60px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">住所：</td>
+		<td class="value_col"><input type="text" name="intro_address" value="<?=$dsp['intro_address']?>" style="width: 300px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">電話番号：</td>
+		<td class="value_col"><input type="text" name="intro_tel" value="<?=$dsp['intro_tel']?>" style="width: 200px;"></td>
+	</tr>
+
+</table>
+
+<br>
+
+<p class="mini_title">▼参加者支払情報</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150">入金：</td>
+		<td class="value_col">
+		<select name="pay_status">
+<?=
+	html_options(
+			$op_arr = $symp_pay_status_type,
+			$selected = $dsp['pay_status']
+		);
+?>
+		</select>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td class="index_col">入金日：</td>
+		<td class="value_col">
+<select name="pay_date_y">
+<?=
+	html_options(
+			$op_arr = $year_options,
+			$selected = $dsp['pay_date_y']
+		);
+?>
+</select>年
+<select name="pay_date_m">
+<?=
+	html_options(
+		$op_arr = $month_options,
+		$selected = $dsp['pay_date_m']
+	);
+?>
+</select>月
+<select name="pay_date_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['pay_date_d']
+	);
+?>
+</select>日
+		</td>
+	</tr>
+
+
+	<tr>
+		<td class="index_col">予定日：</td>
+		<td class="value_col">
+<select name="pay_date_plan_y">
+<?=
+	html_options(
+			$op_arr = $year_options,
+			$selected = $dsp['pay_date_plan_y']
+		);
+?>
+</select>年
+<select name="pay_date_plan_m">
+<?=
+	html_options(
+		$op_arr = $month_options,
+		$selected = $dsp['pay_date_plan_m']
+	);
+?>
+</select>月
+<select name="pay_date_plan_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['pay_date_plan_d']
+	);
+?>
+</select>日
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col">支払い方法：</td>
+		<td class="value_col">
+<select name="pay_way">
+<?=
+	html_options(
+		$op_arr = $symp_pay_way_type,
+		$selected = $dsp['pay_way']
+	);
+?>
+</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col">支払い方法<br>その他の場合：</td>
+		<td class="value_col"><input type="text" name="pay_way_text" value="<?=$dsp['pay_way_text']?>" style="width: 200px;"></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">請求書希望：</td>
+		<td class="value_col">
+<select name="pay_bill"><option value="">------</option>
+<?=
+	html_options(
+		$op_arr = $symp_pay_bill_type,
+		$selected = $dsp['pay_bill']
+	);
+?>
+</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col">備考：</td>
+		<td class="value_col"><textarea name="sanka_biko1" style="width: 300px; height: 50px;"><?=$dsp['sanka_biko1']?></textarea></td>
+	</tr>
+
+</table>
+<input type="hidden" name="member_id" value="<?=$dsp['member_id']?>">
+<input type="hidden" name="symp_id" value="<?=$dsp['symp_id']?>">
+<input type="hidden" name="sanka_id" value="<?=$dsp['sanka_id']?>">
+<br>
+<br>
+<div style="text-align: center;">
+<input type="submit" value="<?=$submit?>" name="OK_1">
+<input type="submit" value="<?=$submit_back?>" name="BACK">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

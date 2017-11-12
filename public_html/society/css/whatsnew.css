@@ -1,0 +1,160 @@
+/*----旧-----*/
+h1,h2,h3,h4,h5,h6,address{
+margin:0;
+padding:0;
+border:0;
+font-style:normal;
+font-weight:normal;
+}
+
+div,blockquote,p,pre,ul,li,dl,dt,dd{
+margin:0;
+padding:0;
+border:0;
+}
+
+table,caption,th,td{
+font-style:normal;
+font-weight:normal;
+}
+
+hr{
+margin:0;
+padding:0;
+display:none;
+}
+
+iframe{
+margin:0;
+padding:0;
+border:0;
+}
+
+form,fieldset,input,button,select,optgroup,option,textarea,label,legend{
+margin:0;
+padding:0;
+}
+
+span,em,strong,dfn,code,samp,kbd,var,cite,abbr,acronym,q,br,ins,del,a,img,object{
+margin:0;
+padding:0;
+border:0;
+font-style:normal;
+font-weight:inherit;
+}
+
+ul{list-style-type:none;}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+
+html,body{
+    height: 100%;
+}
+
+body,h1,h2,h4,h4,h5,h6,td,th,p,div,input,textarea,pre,ul,ol{
+font-family:"ＭＳ Ｐゴシック", "Hiragino kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif;
+font-size:small;
+font-weight:normal;
+line-height:1.4em;
+line-break:strict;
+voice-family:"\"}\"";
+voice-family:inherit;
+font-size:small;
+color:#333333;
+}
+
+a{overflow:hidden;}
+a:link{color:#196bc7;text-decoration:none;}/*通常時のリンク設定*/
+a:visited{color:#196bc7;text-decoration:none;}/*クリック後のリンク設定*/
+a:hover{color:#196bc7;text-decoration:underline;}/*マウスオーバー時のリンク設定*/
+a:active{color:#196bc7;text-decoration:none;}/*クリック時のリンク設定*/
+
+
+strong{font-weight: bold;}
+#whatsnew td{padding-top: 5px;padding-bottom: 5px;background-image: url(../images/line.gif);background-repeat: repeat-x;background-position: left bottom;}
+#whatsnew td.ico{text-align: center;vertical-align: top;padding-top: 8px;width: 20px;}
+
+/*------新-------*/
+#whatsnew h1,h2,h3,h4,h5,h6,address{
+	margin:0;
+	padding:0;
+	border:0;
+	font-style:normal;
+	font-weight:normal;
+}
+
+#whatsnew div,blockquote,p,pre,ul,li,dl,dt,dd{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+#whatsnew table,caption,th,td{
+	font-style:normal;
+	font-weight:normal;
+}
+
+#whatsnew hr{
+	margin:0;
+	padding:0;
+	display:none;
+}
+
+#whatsnew iframe{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+#whatsnew form,fieldset,input,button,select,optgroup,option,textarea,label,legend{
+	margin:0;
+	padding:0;
+}
+
+#whatsnew span,em,strong,dfn,code,samp,kbd,var,cite,abbr,acronym,q,br,ins,del,a,img,object{
+	margin:0;
+	padding:0;
+	border:0;
+	font-style:normal;
+	font-weight:inherit;
+}
+
+#whatsnew ul{list-style-type:none;}
+
+#whatsnew body{
+	margin: 0px;
+	padding: 0px;
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+
+#whatsnew html,body{
+	height: 100%;
+}
+
+#whatsnew body,h1,h2,h4,h4,h5,h6,td,th,p,div,input,textarea,pre,ul,ol{
+	font-family:"ＭＳ Ｐゴシック", "Hiragino kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif;
+	font-size:small;
+	font-weight:normal;
+	line-height:1.4em;
+	line-break:strict;
+	voice-family:"\"}\"";
+	voice-family:inherit;
+	font-size:small;
+	color:#333333;
+}
+
+#whatsnew a{overflow:hidden;}
+#whatsnew a:link{color:#196bc7;text-decoration:none;}
+#whatsnew a:visited{color:#196bc7;text-decoration:none;}
+#whatsnew a:hover{color:#196bc7;text-decoration:underline;}
+#whatsnew a:active{color:#196bc7;text-decoration:none;}
+
+#whatsnew strong{font-weight: bold;}
+#whatsnew td{padding-top: 5px;padding-bottom: 5px;background-image: url(../images/line.gif);background-repeat: repeat-x;background-position: left bottom;}
+#whatsnew td.ico{text-align: center;vertical-align: top;padding-top: 8px;width: 20px;}

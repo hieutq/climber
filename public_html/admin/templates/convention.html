@@ -1,0 +1,254 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">大会登録・編集</div>
+<form method="POST" action="<?=$action?>">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+<? if ($dsp['convention_id'] != "" ) { ?>
+<p class="mini_title top_info_text"><?=$dsp['conv_name']?>の内容編集です</p>
+<? } ?>
+
+<p class="mini_title">▼基本情報</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">名称：</td>
+		<td class="value_col"><input type="text" name="conv_name" value="<?=$dsp[ 'conv_name' ]?>" style="width: 180px;" /></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">開催期間（表示用）：</td>
+		<td class="value_col"><input type="text" name="conv_open" value="<?=$dsp[ 'conv_open' ]?>" style="width: 200px;" /></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">開催場所（表示用）：</td>
+		<td class="value_col"><input type="text" name="conv_place" value="<?=$dsp[ 'conv_place' ]?>" style="width: 200px;" /></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">表示設定：</td>
+		<td class="value_col">
+<select name="view">
+<?=
+	html_options(
+			$op_arr = $view_status_options,
+			$selected = $dsp[ 'view_status' ]
+		);
+?>
+</select>
+		</td>
+	</tr>
+</table>
+<br />
+
+<p class="mini_title">▼日程情報</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">講演申込 開始日：</td>
+		<td class="value_col">
+<select name="kouen_open_y">
+<?=
+	html_options(
+			$op_arr = $year_options,
+			$selected = $dsp[ 'kouen_open_y' ]
+		);
+?>
+</select>年
+<select name="kouen_open_m">
+<?=
+	html_options(
+		$op_arr = $month_options,
+		$selected = $dsp[ 'kouen_open_m' ]
+	);
+?>
+</select>月
+<select name="kouen_open_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp[ 'kouen_open_d' ]
+	);
+?>
+</select>日&nbsp;
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">　　　　 締切日：</td>
+		<td class="value_col">
+<select name="kouen_close_y">
+<?=
+	html_options(
+		$op_arr = $year_options,
+		$selected = $dsp[ 'kouen_close_y' ]
+	);
+?>
+</select>年
+<select name="kouen_close_m">
+<?=
+	html_options(
+		$op_arr = $month_options,
+		$selected = $dsp[ 'kouen_close_m' ]
+	);
+?>
+</select>月
+<select name="kouen_close_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp[ 'kouen_close_d' ]
+	);
+?>
+</select>日
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">参加申込 開始日：</td>
+		<td class="value_col">
+<select name="sanka_open_y">
+<?=
+	html_options(
+			$op_arr = $year_options,
+			$selected = $dsp[ 'sanka_open_y' ]
+		);
+?>
+</select>年
+<select name="sanka_open_m">
+<?=
+	html_options(
+		$op_arr = $month_options,
+		$selected = $dsp[ 'sanka_open_m' ]
+	);
+?>
+</select>月
+<select name="sanka_open_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp[ 'sanka_open_d' ]
+	);
+?>
+</select>日
+		</td>
+	</tr>
+
+
+	<tr>
+		<td class="index_col" width="150">　　　　 締切日：</td>
+		<td class="value_col">
+<select name="sanka_close_y">
+<?=
+	html_options(
+		$op_arr = $year_options,
+		$selected = $dsp[ 'sanka_close_y' ]
+	);
+?>
+</select>年
+<select name="sanka_close_m">
+<?=
+	html_options(
+		$op_arr = $month_options,
+		$selected = $dsp[ 'sanka_close_m' ]
+	);
+?>
+</select>月
+<select name="sanka_close_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp[ 'sanka_close_d' ]
+	);
+?>
+</select>日
+
+		</td>
+	</tr>
+</table>
+<br>
+
+
+<p class="mini_title">▼料金設定</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">講演会：</td>
+		<td class="value_col">
+<?php
+	reset( $member_type_options );
+	while( list( $key, $val ) = each( $member_type_options ) ) {
+?>
+<?=$val?>：<input type="text" value="<?=$dsp['p1_arr'][$key]?>" name="p1_arr[]" style="width: 50px;">円<br>
+<?php	
+	}
+?>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">懇親会：</td>
+		<td class="value_col">
+<?php
+	reset( $member_type_options );
+	while( list( $key, $val ) = each( $member_type_options ) ) {
+?>
+<?=$val?>：<input type="text" value="<?=$dsp['p2_arr'][$key]?>" name="p2_arr[]" style="width: 50px;">円<br>
+<?php	
+	}
+?>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">事前送付：</td>
+		<td class="value_col">
+<?php
+	reset( $member_type_options );
+	while( list( $key, $val ) = each( $member_type_options ) ) {
+?>
+<?=$val?>：<input type="text" value="<?=$dsp['p3_arr'][$key]?>" name="p3_arr[]" style="width: 50px;">円<br>
+<?php	
+	}
+?>
+		</td>
+	</tr>
+</table>
+
+<br>
+▼講演分類<br>
+<div style="margin-left: 15px;">
+<?php for($i=0; $i<=26; $i++) : ?>
+<input type="text" name="c_type[]" value="<?=$dsp['c_type'][$i]?>" style="width: 40px;">&nbsp;
+<input type="text" name="c_body[]" value="<?=$dsp['c_body'][$i]?>" style="width: 500px;"><br>
+<?php endfor; ?>
+</div>
+<br>
+<div style="text-align: center;">
+<input type="submit" value="<?=$submit?>" name="OK_1">
+<input type="submit" value="<?=$submit_back?>" name="BACK_TO_LIST">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+<input type="hidden" name="convention_id" value="<?=$dsp['convention_id']?>">
+</form>
+
+</body>
+</html>

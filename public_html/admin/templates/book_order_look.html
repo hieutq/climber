@@ -1,0 +1,123 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">書籍注文　確認</div>
+<form method="POST" action="">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<p class="mini_title">▼注文内容</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col">注文番号：</td>
+		<td class="value_col"><?=$dsp['book_sell_id']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">注文日時：</td>
+		<td class="value_col"><?=$dsp['regist_dt']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">書籍ID：</td>
+		<td class="value_col"><?=$dsp['book_id']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">シリーズNo.：</td>
+		<td class="value_col">No.<?=$dsp['book_sid']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">書籍名：</td>
+		<td class="value_col"><?=$dsp['book_name']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">書籍ジャンル：</td>
+		<td class="value_col"><?=$book_genre_options[ $dsp['book_genre'] ]?></td>
+	</tr>
+	<tr>
+		<td class="index_col">注文冊数：</td>
+		<td class="value_col"><?=$dsp['book_cnt']?>冊</td>
+	</tr>
+	<tr>
+		<td class="index_col">料金：</td>
+		<td class="value_col"><?=$book_price?>円(<?=$book_price_info?>)(送料抜き)</td>
+	</tr>
+</table>
+<br />
+
+<p class="mini_title">▼宛先情報</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col">ログイン状態：</td>
+		<td class="value_col"><?=$member_bookBuy_login_type[$dsp['login_flg']]?></td>
+	</tr>
+	<tr>
+		<td class="index_col">会員番号：</td>
+		<td class="value_col"><?=$dsp['member_userid']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">名前：</td>
+		<td class="value_col"><?=$dsp['member_name']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">区分：</td>
+		<td class="value_col"><?=$member_kubun01_options[ $dsp['member_kubun01'] ]?></td>
+	<tr>
+	<tr>
+		<td class="index_col">メール：</td>
+		<td class="value_col"><?=$dsp['member_mail']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">電話：</td>
+		<td class="value_col"><?=$dsp['member_tel']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">所属：</td>
+		<td class="value_col"><?=$dsp['member_info01']?>&nbsp;/&nbsp;<?=$dsp['member_info02']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">住所：</td>
+		<td class="value_col">
+		<?=$dsp['member_zip1']?>-<?=$dsp['member_zip2']?><br />
+		<?=$dsp['member_address']?>
+		</td>
+	</tr>
+
+</table>
+<br>
+
+<br>
+<input type="hidden" name="symp_id" value="<?=$dsp['book_sell_id']?>">
+<br>
+
+
+<br>
+
+<br>
+<div style="text-align: center;">
+<!--<input type="submit" value="<?=$submit?>" name="OK_2">-->
+
+<input type="submit" value="<?=$submit_back?>" name="BACK">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

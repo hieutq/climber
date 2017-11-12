@@ -1,0 +1,60 @@
+<h2>お問い合わせ</h2>
+<div class="main_box">
+
+<form method="post" action="./?mode=contact2_confirm">
+
+<table border="0" cellspacing="0" cellpadding="0" class="mailform" summary="mailform main">
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />お名前</th>
+<td><?=$dsp[ 'name' ]?></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th>フリガナ</th>
+<td><?=$dsp[ 'kana' ]?></td>
+</tr>
+<tr class="mfptr">
+<th>会社名・所属・役職</th>
+<td><?=$dsp[ 'company' ]?></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />メールアドレス</th>
+<td><?=$dsp[ 'mail' ]?></td>
+</tr>
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />確認のためもう一度</th>
+<td><?=$dsp[ 'mail_check' ]?></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th>電話番号</th>
+<td><?=$dsp[ 'tel' ]?></td>
+</tr>
+<tr class="mfptr">
+<th>所属住所</th>
+<td><ol>
+<li> <span>郵便番号</span><?=$add1_options[ $dsp[ 'zip' ] ]?></li>
+<li> <span>都道府県</span><?=$add1_options[ $dsp[ 'add1' ] ]?></li>
+<li><span>市区町村</span><?=$dsp[ 'add2' ]?></li>
+<li><span>丁目番地</span><?=$dsp[ 'add3' ]?></li>
+</ol></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />ご相談内容</th>
+<td><?=$dsp[ 'cmnt' ]?></td>
+</tr>
+</table>
+<div id="mfp_buttons " style="height: 35px; text-align: center;">
+
+<input type="submit" name="BACK" value="　" class="back" style="border: 0px;
+	width: 160px;
+	height: 35px;
+	background: url(./images/mfp_cancel.gif) left top no-repeat;"/>
+&nbsp;
+<input type="submit" name="REGIST" value="　" class="regist" style="border: 0px;
+	width: 160px;
+	height: 35px;
+	background: url(./images/mfp_send.gif) left top no-repeat;"/> 
+</li>
+
+</div>
+</form>
+</div>

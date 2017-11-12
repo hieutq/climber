@@ -1,0 +1,88 @@
+/*----- login ------*/
+#login_box{
+	width: 300px;
+	margin-top: 100px;
+	margin-right: auto;
+	margin-left: auto;
+	filter: Shadow(Color=#999, Direction=80);
+}
+
+#tittle{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+/*----- pager ------*/
+.pager,
+.pager ul,
+.pager ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.pager li {
+	display: inline-block;   
+	text-align: center;
+	line-height: 20px;
+	margin-right: 3px;
+	margin-bottom: 15px;
+	float: left;
+}
+* html .pager li {
+	display: inline;
+	zoom: 1;
+}
+.pager li a,
+.pager li span {
+	display: block;
+	background: #eeeeee;
+	border: solid 1px #A0A0A0;
+	padding: 0 5px;
+	min-width: 20px;
+	width: auto !important;
+	width: 20px;
+	height: 20px;
+	font-size: 12px;
+}
+.pager li span {
+	background: #196bc7;
+	border: solid 1px #333;
+	color: #ffffff;
+}
+.pager li a:link,
+.pager li a:visited,
+.pager li a:active,
+.pager li a:hover {
+	text-decoration: none;
+	color: #000000;
+}
+.pager li a:hover {
+	background: #dcdcdc;
+}
+
+/*----- custum ------*/
+div#err {
+	color: red;
+}
+form div#normal {
+	padding: 0 10px 10px 20px;
+}
+form div#h_half {
+	padding: 20px 10px 10px 10px;
+}
+form div#h_bottom {
+	padding: 0 10px 40px 20px;
+}
+div#pager {
+	padding: 0 20px;
+	display: block;
+	width: 100%;
+	float: left;
+}
+table#list {
+	margin-left: 20px;
+}

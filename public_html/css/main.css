@@ -1,0 +1,157 @@
+@charset "utf-8";
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+Reset
+******************************************************************************
+----------------------------------------------------------------------------*/
+
+
+h1,h2,h3,h4,h5,h6,address{
+margin:0;
+padding:0;
+border:0;
+font-style:normal;
+font-weight:normal;
+}
+
+div,blockquote,p,pre,ul,ol,li,dl,dt,dd{
+margin:0;
+padding:0;
+border:0;
+}
+
+table,caption,th,td{
+font-style:normal;
+font-weight:normal;
+}
+
+hr{
+margin:0;
+padding:0;
+display:none;
+}
+
+iframe{
+margin:0;
+padding:0;
+border:0;
+}
+
+form,fieldset,input,button,select,optgroup,option,textarea,label,legend{
+margin:0;
+padding:0;
+}
+
+span,em,strong,dfn,code,samp,kbd,var,cite,abbr,acronym,q,br,ins,del,a,img,object{
+margin:0;
+padding:0;
+border:0;
+font-style:normal;
+font-weight:inherit;
+}
+
+ul{list-style-type:none;}
+
+embed{vertical-align:bottom}
+img{vertical-align: top; vertical-align:bottom}
+
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+Basic
+******************************************************************************
+----------------------------------------------------------------------------*/
+
+body{
+	margin: 0px;
+	padding: 0px;
+	background-image: url(../images/top_bg.jpg);
+	background-repeat: repeat-x;
+	min-width:940px;
+}
+
+html,body{height: 100%;}
+
+body,h1,h2,h4,h4,h5,h6,td,th,p,div,input,textarea,pre,ul,ol{
+	font-family:"ＭＳ Ｐゴシック", "Hiragino kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif;
+	font-size:small;
+	font-weight:normal;
+	line-height:1.8em;
+	line-break:strict;
+	voice-family:"\"}\"";
+	voice-family:inherit;
+	font-size:small;
+	color:#333333;
+}
+
+a{overflow:hidden;}
+a:link{color:#009999;text-decoration:none;}/* 通常時のリンク設定 */
+a:visited{color:#009999;text-decoration:none;}/* クリック後のリンク設定 */
+a:active{color:#009999;text-decoration:none;}/* クリック時のリンク設定 */
+embed{vertical-align: bottom;}
+a:hover{color:#009999;text-decoration:underline;}/* マウスオーバー時のリンク設定 */
+strong{font-weight: bold;}
+p{
+	margin-bottom: 20px;
+}
+
+.crr{
+font-size:0;
+line-height:0;
+padding:0;
+margin:0;
+clear:both;
+}
+
+.clearfix:after{content: "."; display: block; height: 0;  clear: both; visibility: hidden;}
+.clearfix{display:inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix{height:1%;}
+.clearfix{display:block;}
+/* End hide from IE-mac */
+
+#wrap{
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#flash{ height:580px;}
+
+
+/* ---- 検索---- */
+#search{float: right;margin-top: 20px;width: 400px;}
+#search dt{width: 130px;float: left;}
+#search dd{float: right;width: 260px;}
+#searchform1 {position: relative;}
+#keywords1	{
+	width: 200px;
+	height: 14px;
+	border: 1px solid #CCC;
+	padding: 2px 2px 2px 2px;
+	line-height: 100%;
+}
+#searchBtn1	{position: absolute;top: 0;left: 213px;}
+
+
+#footer{
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#footer p{
+	float: left;
+	padding: 0px;
+	margin-top: 23px;
+	font-size: 11px;
+	color: #0B7777;
+	letter-spacing: 1px;
+}
+
+#txt{
+	font-size: 10px;
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;
+}

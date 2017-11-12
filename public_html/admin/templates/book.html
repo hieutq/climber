@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">書籍情報 編集</div>
+<form method="POST" action="<?=$action?>">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<p class="mini_title">▼書籍情報入力</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">タイトル：</td>
+		<td class="value_col"><input type="text" name="book_name" value="<?=$dsp['book_name']?>" style="width: 250px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">ジャンル：</td>
+		<td class="value_col"><select name="book_genre">
+<?=
+	html_options(
+		$op_arr = $book_genre_options,
+		$selected = $dsp['book_genre']
+	);
+?>
+		</select></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">シリーズNo.：</td>
+		<td class="value_col">
+			No.<input type="text" name="book_sid" value="<?=$dsp['book_sid']?>" style="width: 80px;">
+			<input type="submit" value="最大値挿入" name="SID_MAX_INSERT" />
+		</td>
+	</tr>
+	<tr>
+		<td class="index_col">発行年：</td>
+		<td class="value_col"><select name="book_year">
+<?=
+	html_options(
+		$op_arr = $book_year_options,
+		$selected = $dsp['book_year']
+	);
+?>
+		</select>年</td>
+	</tr>
+	<tr>
+		<td class="index_col">定価：</td>
+		<td class="value_col"><input type="text" name="book_price1" value="<?=$dsp['book_price1']?>" style="width: 100px;">円<br />
+在庫のないものは定価欄に(コピー)とし、会員価格欄に1冊全部をコピーしたときの代金を記入してください。</td>
+	</tr>
+	<tr>
+		<td class="index_col">会員価格：</td>
+		<td class="value_col"><input type="text" name="book_price2" value="<?=$dsp['book_price2']?>" style="width: 100px;">円</td>
+	</tr>
+	<tr>
+		<td class="index_col">管理メモ：</td>
+		<td class="value_col"><textarea name="book_biko" style="width: 300px; height: 50px;"><?=$dsp['book_biko']?></textarea></td>
+	</tr>
+
+
+</table>
+
+
+<br>
+<input type="hidden" name="book_id" value="<?=$dsp['book_id']?>">
+<br>
+
+
+<br>
+
+<br>
+<div style="text-align: center;">
+<input type="submit" value="<?=$submit?>" name="OK_1">
+<input type="submit" value="<?=$submit_back?>" name="BACK">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

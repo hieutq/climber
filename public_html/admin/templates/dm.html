@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">会員宛　DM作成・送信</div>
+
+<table class="search_tbl">
+<tr>
+<th>■DM内容</th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<? if($comment_msg != ""){ ?>
+<p class="mini_title top_info_text"><?=$comment_msg?></p>
+<? } ?>
+<p class="mini_title top_info_text">メール内容作成</p>
+
+<form method="POST" action="">
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">送信者氏名：</td>
+		<td class="value_col">
+<input type="text" name="sender_name" value="<?=$dsp[ 'sender_name' ]?>" style="width: 150px;" />
+		</td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">送信者メール：</td>
+		<td class="value_col">
+<input type="text" name="sender_mail" value="<?=$dsp[ 'sender_mail' ]?>" style="width: 250px;" />
+		</td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">タイトル：</td>
+		<td class="value_col">
+<input type="text" name="mail_title" value="<?=$dsp[ 'mail_title' ]?>" style="width: 150px;" />
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">本文：</td>
+		<td class="value_col">
+<textarea name="mail_body" style="width: 300px; height: 50px;"><?=$dsp[ 'mail_body' ]?></textarea>
+		</td>
+	</tr>
+
+</table>
+<input type="hidden" name="mail_type" value="<?=$dsp[ 'mail_type' ]?>" />
+<input type="hidden" name="convention_id" value="<?=$dsp[ 'convention_id' ]?>" />
+<input type="hidden" name="symp_id" value="<?=$dsp[ 'symp_id' ]?>" />
+<br>
+
+<div style="text-align: center;">
+<input type="submit" value=" 確 認 " name="CONFIRM">&nbsp;&nbsp;
+<input type="submit" value=" リセット " name="RESET">
+</div>
+</form>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+
+
+
+</body>
+</html>

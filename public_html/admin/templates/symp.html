@@ -1,0 +1,232 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">シンポジウム・セミナー情報 編集</div>
+<form method="POST" action="<?=$action?>">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<p class="mini_title">▼シンポジウム・セミナー情報入力</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">名称：</td>
+		<td class="value_col"><input type="text" name="symp_name" value="<?=$dsp['symp_name']?>" style="width: 200px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">サブタイトル：</td>
+		<td class="value_col"><input type="text" name="symp_subtitle" value="<?=$dsp['symp_subtitle']?>" style="width: 300px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">主催：</td>
+		<td class="value_col"><input type="text" name="symp_syusai" value="<?=$dsp['symp_syusai']?>" style="width: 200px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">後援：</td>
+		<td class="value_col"><input type="text" name="symp_kouen" value="<?=$dsp['symp_kouen']?>" style="width: 200px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">協賛：</td>
+		<td class="value_col"><textarea name="symp_kyousan" style="width: 300px; height: 50px;"><?=$dsp['symp_kyousan']?></textarea></td>
+	</tr>
+	<tr>
+		<td class="index_col">日時（表示用）：</td>
+		<td class="value_col"><input type="text" name="symp_date3_text" value="<?=$dsp['symp_date3_text']?>" style="width: 150px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">会場：</td>
+		<td class="value_col"><textarea name="symp_place" style="width: 300px; height: 50px;"><?=$dsp['symp_place']?></textarea></td>
+	</tr>
+	<tr>
+		<td class="index_col">参加費（表示用）：</td>
+		<td class="value_col"><input type="text" name="symp_price_text" value="<?=$dsp['symp_price_text']?>" style="width: 200px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">定員：</td>
+		<td class="value_col"><input type="text" name="symp_capacity" value="<?=$dsp['symp_capacity']?>" style="width: 200px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">概要：</td>
+		<td class="value_col"><textarea name="symp_biko01" style="width: 300px; height: 50px;"><?=$dsp['symp_biko01']?></textarea></td>
+	</tr>
+	<tr>
+		<td class="index_col">詳細：</td>
+		<td class="value_col"><textarea name="symp_biko02" style="width: 300px; height: 50px;"><?=$dsp['symp_biko02']?></textarea></td>
+	</tr>
+	<tr>
+		<td class="index_col">世話人：<br>(最大４名)</td>
+		<td class="value_col">
+			所属：<input type="text" name="symp_sewa_info1[]" value="<?=$dsp['sewanin_info1'][0]?>" style="width: 150px;"><br>
+			名前：<input type="text" name="symp_sewa_name[]" value="<?=$dsp['sewanin_name'][0]?>" style="width: 150px;"><br>
+			<br>
+			所属：<input type="text" name="symp_sewa_info1[]" value="<?=$dsp['sewanin_info1'][1]?>" style="width: 150px;"><br>
+			名前：<input type="text" name="symp_sewa_name[]" value="<?=$dsp['sewanin_name'][1]?>" style="width: 150px;"><br>
+			<br>
+			所属：<input type="text" name="symp_sewa_info1[]" value="<?=$dsp['sewanin_info1'][2]?>" style="width: 150px;"><br>
+			名前：<input type="text" name="symp_sewa_name[]" value="<?=$dsp['sewanin_name'][2]?>" style="width: 150px;"><br>
+			<br>
+			所属：<input type="text" name="symp_sewa_info1[]" value="<?=$dsp['sewanin_info1'][3]?>" style="width: 150px;"><br>
+			名前：<input type="text" name="symp_sewa_name[]" value="<?=$dsp['sewanin_name'][3]?>" style="width: 150px;"><br>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="index_col">申込開始<br>(システム用)：</td>
+		<td class="value_col"><select name="symp_date1_y">
+<?=
+	html_options(
+		$op_arr = $year_options,
+		$selected = $dsp['symp_date1_y']
+	);
+?>
+		</select>年<select name="symp_date1_m">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['symp_date1_m']
+	);
+?>
+		</select>月<select name="symp_date1_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['symp_date1_d']
+	);
+?>
+		</select>日
+
+</td>
+	</tr>
+	<tr>
+		<td class="index_col">申込締切<br>(システム用)：</td>
+		<td class="value_col"><select name="symp_date2_y">
+<?=
+	html_options(
+		$op_arr = $year_options,
+		$selected = $dsp['symp_date2_y']
+	);
+?>
+		</select>年<select name="symp_date2_m">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['symp_date2_m']
+	);
+?>
+		</select>月<select name="symp_date2_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['symp_date2_d']
+	);
+?>
+		</select>日
+
+</td>
+	</tr>
+
+	<tr>
+		<td class="index_col">開催<br>(システム用)：</td>
+		<td class="value_col"><select name="symp_date3_y">
+<?=
+	html_options(
+		$op_arr = $year_options,
+		$selected = $dsp['symp_date3_y']
+	);
+?>
+		</select>年<select name="symp_date3_m">
+<?=
+	html_options(
+		$op_arr = $month_options,
+		$selected = $dsp['symp_date3_m']
+	);
+?>
+		</select>月<select name="symp_date3_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['symp_date3_d']
+	);
+?>
+		</select>日
+
+</td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">表示設定：</td>
+		<td class="value_col">
+<select name="view">
+<?=
+	html_options(
+			$op_arr = $view_status_options,
+			$selected = $dsp[ 'view_status' ]
+		);
+?>
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="index_col">料金設定<br>(システム用)：</td>
+		<td class="value_col">
+<?php
+	reset( $member_kubun01_type );
+	while( list( $key, $val ) = each( $member_kubun01_type ) ) {
+?>
+<?=$val?>：<input type="text" value="<?=$dsp['price1'][$key]?>" name="price1[]" style="width: 50px;">円<br>
+<?php	
+	}
+?>
+		</td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">支払方法表示：</td>
+		<td class="value_col">
+<select name="pay_way_view">
+<?=
+	html_options(
+			$op_arr = $view_status_options,
+			$selected = $dsp[ 'pay_way_view_status' ]
+		);
+?>
+</select>
+		</td>
+	</tr>
+
+</table>
+
+
+<br>
+<input type="hidden" name="symp_id" value="<?=$dsp['symp_id']?>">
+<br>
+
+
+<br>
+
+<br>
+<div style="text-align: center;">
+<input type="submit" value="<?=$submit?>" name="OK_1">
+<input type="submit" value="<?=$submit_back?>" name="BACK">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

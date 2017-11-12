@@ -1,0 +1,29 @@
+RewriteEngine on
+RewriteBase /eng
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([0-9a-zA-Z_\-]+)\.html$ $1\.php [L]
+php_flag display_errors 'On'
+RewriteRule ^links$ link\.php [QSA,L]
+RewriteRule ^search$ search\.php [QSA,L]
+RewriteRule ^international$ ?p=3 [QSA,L]
+RewriteRule ^link-Univ$ ?p=9 [QSA,L]
+RewriteRule ^link-org$ ?p=10 [QSA,L]
+RewriteRule ^link-RI$ ?p=11 [QSA,L]
+RewriteRule ^redirect$ ?p=22 [QSA,L]
+RewriteRule ^redirect$ ?p=13 [QSA,L]
+RewriteRule ^redirect$ ?p=4 [QSA,L]
+RewriteRule ^aboutjilm$ ?p=13 [QSA,L]
+RewriteRule ^presidentialgreeting$ ?p=23 [QSA,L]
+RewriteRule ^history$ ?p=24 [QSA,L]
+RewriteRule ^organization$ ?p=25 [QSA,L]
+RewriteRule ^secretariat$ ?p=26 [QSA,L]
+RewriteRule ^committee$ ?p=27 [QSA,L]
+RewriteRule ^researchdivisions$ ?p=28 [QSA,L]
+RewriteRule ^branch$ ?p=6 [QSA,L]
+RewriteRule ^manuscript_instructions$ ?p=32 [QSA,L]
+RewriteRule ^guide_for_authors$ ?p=31 [QSA,L]
+RewriteRule ^ICAA1420130917$ ?p=19 [QSA,L]
+RewriteRule ^enrollment_and_membership$ ?p=30 [QSA,L]
+
+RewriteRule ^dummy1$ ?p=35 [QSA,L]

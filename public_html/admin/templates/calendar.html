@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">カレンダー情報 編集</div>
+<form method="POST" action="<?=$action?>">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<p class="mini_title">▼カレンダー情報入力</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">開催日（表示用）：</td>
+		<td class="value_col"><textarea name="date_text" style="width: 300px; height: 40px;"><?=$dsp[ 'cal_date_text']?></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">開催日<br>(システム用)：</td>
+		<td class="value_col"><select name="date_y">
+<?=
+	html_options(
+		$op_arr = $year_options,
+		$selected = $dsp['cal_date_y']
+	);
+?>
+		</select>年<select name="date_m">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['cal_date_m']
+	);
+?>
+		</select>月<select name="date_d">
+<?=
+	html_options(
+		$op_arr = $day_options,
+		$selected = $dsp['cal_date_d']
+	);
+?>
+		</select>日
+
+</td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">背景色：</td>
+		<td class="value_col"><select name="colored">
+<?=
+	html_options(
+		$op_arr = $colored_type,
+		$selected = $dsp['cal_colored']
+	);
+?>
+		</select></td>
+	</tr>
+
+
+	<tr>
+		<td class="index_col" width="150">行事名・開催地１：</td>
+		<td class="value_col"><textarea name="text_1" style="width: 300px; height: 40px;"><?=$dsp[ 'cal_text_1']?></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">リンク 1：</td>
+		<td class="value_col"><input type="text" name="link_1" value="<?=$dsp['cal_link_1']?>" style="width: 300px;" /></td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">行事名・開催地２：</td>
+		<td class="value_col"><textarea name="text_2" style="width: 300px; height: 40px;"><?=$dsp[ 'cal_text_2']?></textarea></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">リンク 2：</td>
+		<td class="value_col"><input type="text" name="link_2" value="<?=$dsp['cal_link_2']?>" style="width: 300px;" /></td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">主催：</td>
+		<td class="value_col"><textarea name="syusai" style="width: 300px; height: 40px;"><?=$dsp[ 'cal_syusai']?></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">主催リンク：</td>
+		<td class="value_col"><input type="text" name="syusai_link" value="<?=$dsp['cal_syusai_link']?>" style="width: 300px;" /></td>
+	</tr>
+
+</table>
+
+
+<br>
+<input type="hidden" name="cal_id" value="<?=$dsp['cal_id']?>">
+<br>
+
+
+<br>
+
+<br>
+<div style="text-align: center;">
+<input type="submit" value="<?=$submit?>" name="OK_1">
+<input type="submit" value="<?=$submit_back?>" name="BACK">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

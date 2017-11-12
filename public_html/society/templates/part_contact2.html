@@ -1,0 +1,119 @@
+<h2>維持会員技術相談室</h2>
+<div class="main_box">
+<p class="contact2_info">
+　軽金属学会では、平成26年度から、維持会員を対象として、日頃の軽金属に関わるあらゆる問題にお応えする「維持会員技術相談室」を開設致しました。<br>
+　維持会員企業所属のどなたでもご利用可能です。相談室ご利用の際には、連絡先メールアドレスに、維持会員企業の方とわかる独自ドメイン名が入ったメールアドレスの記入をお願い致します（例えばjilm1951＠jilm.or.jp。jilm1951@gmail.com等は使用不可）。維持会員の確認を行った後、対応致します。<br>
+　ご相談内容は、維持会員企業の所属する軽金属学会支部、あるいは軽金属学会本部の各分野の専門家が相談員となり、責任を持って対応します。なお、ご相談内容について、軽金属学会および相談員が、相談者の許可なく外部へ漏らすことはありません。<br>
+　ご相談内容のQ&amp;A事例をいくつか作成しましたので、ご参照ください。事例は<a href="./images/contact2_faq_sample.pdf" target="_blank">こちら</a><br>
+　ご相談内容は以下のフォームにご記入の上、ご送信下さい。
+</p>
+
+<form method="post" action="./?mode=contact2">
+
+<table border="0" cellspacing="0" cellpadding="0" class="mailform" summary="mailform main">
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />お名前</th>
+<td><input type="text" name="name" size="20" value="<?=$dsp[ 'name' ]?>" <?=$err_style1[ 'name' ]?> />
+<div class="mfp_err"<?=$err_style2[ 'name' ]?>><?=$err_msg[ 'name' ]?></div></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th>フリガナ</th>
+<td><input type="text" name="kana" size="20" value="<?=$dsp[ 'kana' ]?>"  <?=$err_style1[ 'kana' ]?>/></td>
+</tr>
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />会社名・所属・役職</th>
+<td><input type="text" name="company" value="<?=$dsp[ 'company' ]?>" size="40"  <?=$err_style1[ 'company' ]?>/>
+<div class="mfp_err" <?=$err_style2[ 'company' ]?> ><?=$err_msg[ 'company' ]?></div></td>
+</tr>
+<!--
+<tr class="mfptr">
+<th>性別</th>
+<td>
+	<ul>
+		<li>
+		<label for="male" id="male_label" class="mfp">
+		<input type="radio" name="sex" id="male" value="1" class="mfp" <?=$dsp[ 'sex_checked' ][1]?> />男性
+		</label>
+		</li>
+		<li>
+		<label for="female" id="female_label" class="mfp">
+		<input type="radio" name="sex" id="female" value="2" class="mfp" <?=$dsp[ 'sex_checked' ][2]?> />女性
+		</label>
+		</li>
+	</ul>
+</div>
+</td>
+</tr>-->
+<tr class="mfptr" style="background: #e8eef9">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />メールアドレス</th>
+<td><input type="text" name="mail" value="<?=$dsp[ 'mail' ]?>" size="40"  <?=$err_style1[ 'mail' ]?>/>
+<div class="mfp_err" <?=$err_style2[ 'mail' ]?> ><?=$err_msg[ 'mail' ]?></div></td>
+</tr>
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />確認のためもう一度</th>
+<td><input type="text" name="mail_check" value="<?=$dsp[ 'mail_check' ]?>" size="40" <?=$err_style1[ 'mail_check' ]?> />
+<div class="mfp_err" <?=$err_style2[ 'mail_check' ]?>><?=$err_msg[ 'mail_check' ]?></div></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th>電話番号</th>
+<td><input type="text" name="tel" value="<?=$dsp[ 'tel' ]?>" size="12"  <?=$err_style1[ 'tel' ]?>/>&nbsp;※半角数字と-（ハイフン）のみ入力可能<div class="mfp_err"<?=$err_style2[ 'tel' ]?>><?=$err_msg[ 'tel' ]?></div></td>
+</tr>
+<!-- <tr class="mfptr">
+<th>郵便番号</th>
+<td>
+<input type="text" name="zip" size="8" value="<?=$dsp[ 'zip' ]?>"   <?=$err_style1[ 'zip' ]?>/>
+<a href="http://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号を調べる</a>
+<div class="mfp_err"<?=$err_style2[ 'zip' ]?>><?=$err_msg[ 'zip' ]?></div></td>
+</tr> -->
+<tr class="mfptr">
+<th>所属住所</th>
+<td><ol>
+<li><span>郵便番号</span>
+<input type="text" name="zip" size="8" value="<?=$dsp[ 'zip' ]?>"   <?=$err_style1[ 'zip' ]?>/>
+<a href="http://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号を調べる</a>&nbsp;※半角数字と-（ハイフン）のみ入力可能
+<div class="mfp_err"<?=$err_style2[ 'zip' ]?>><?=$err_msg[ 'zip' ]?></div>
+</li>
+<li> <span>都道府県</span>
+<select name="add1" id="mfp_el07" class="mfp">
+<option value="">【選択して下さい】</option>
+<?=
+html_options( 
+	$op_arr = $add1_options,
+	$selected= $dsp[ 'add1' ]
+);
+?>
+</select>
+</li>
+<li><span>市区町村</span>
+<input type="text" name="add2" value="<?=$dsp[ 'add2' ]?>" size="50"  <?=$err_style1[ 'add2' ]?>/>
+</li>
+<li><span>丁目番地</span>
+<input type="text" name="add3" value="<?=$dsp[ 'add3' ]?>" size="50"  <?=$err_style1[ 'add3' ]?>/>
+</li>
+</ol></td>
+</tr>
+<tr class="mfptr" style="background: #e8eef9">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />ご相談内容</th>
+<td><textarea name="cmnt" id="mfp_el10" rows="10" cols="60" <?=$err_style1[ 'cmnt' ]?>><?=$dsp[ 'cmnt' ]?></textarea>
+<div class="mfp_err" <?=$err_style2[ 'cmnt' ]?>><?=$err_msg[ 'cmnt' ]?></div></td>
+</tr>
+<tr class="mfptr">
+<th><img src="images/mfp_must.gif" width="30" height="16" alt="必須" class="must" />送信確認</th>
+<td><label for="send_confirm" id="send_confirm_label" class="mfp">
+<input type="checkbox" id="send_confirm" name="check" value="1" class="mfp" <?=$dsp[ 'check_checked' ]?>/>
+上記送信内容を確認したらチェックを入れてください</label>
+<div class="mfp_err" <?=$err_style2[ 'check' ]?>><?=$err_msg[ 'check' ]?></div></td>
+</tr>
+</table>
+<div id="mfp_buttons">
+<ul>
+<li>
+<input type="submit" name="RESET" value=" "  id="button_mfp_reset" onmouseover="this.style.background='url(images/mfp_reset_over.gif)'" onmouseout="this.style.background='url(images/mfp_reset.gif)'" />
+</li>
+<li>
+<input type="submit" name="CONFIRM" value=" " id="button_mfp_goconfirm" onmouseover="this.style.background='url(images/mfp_goconfirm_over.gif)'" onmouseout="this.style.background='url(images/mfp_goconfirm.gif)'" />
+</li>
+</ul>
+</div>
+</form>
+</div>

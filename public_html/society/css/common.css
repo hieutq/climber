@@ -1,0 +1,96 @@
+/*----------------------------------------------------------------------------
+******************************************************************************
+Layout
+******************************************************************************
+----------------------------------------------------------------------------*/
+.fsS{font-size:70%;}
+.fsL{font-size:120%;}
+
+.marT5{margin-top:5px;}
+.marT10{margin-top:10px;}
+.marT15{margin-top:15px;}
+.marT20{margin-top:20px;}
+.marB5{margin-bottom:5px;}
+.marB10{margin-bottom:10px;}
+.marB15{margin-bottom:15px;}
+.marB20{margin-bottom:20px;}
+.marL5{margin-left:5px;}
+.marL10{margin-left:10px;}
+.marL15{margin-left:15px;}
+.marL20{margin-left:20px;}
+.marR5{margin-right:5px;}
+.marR10{margin-right:10px;}
+.marR15{margin-right:15px;}
+.marR20{margin-right:20px;}
+
+.fs10{font-size: 10px;}
+.fs12{font-size: 12px;}
+.fs14{font-size: 14px;}
+.fs16{font-size: 16px;}
+
+.fc_red{
+	color: #F00;
+}
+
+strong{font-weight: bold;}
+
+.alignC{text-align:center}
+.alignL{text-align:left}
+.alignR{text-align:right}
+.alignT{vertical-align:top;}
+.alignM{vertical-align:middle;}
+
+.thumbL {float: left;margin: 0px 15px 5px 0;padding: 0px;}
+.thumbR {float: right;margin: 0px 0px 5px 15px;padding: 0px;}
+.description {overflow: hidden;}
+
+.line{
+	background-image: url(../images/line.gif);
+	background-repeat: repeat-x;
+	background-position: left;
+	height: 1px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 0px;
+	line-height: 0px;
+}
+
+.t_border{
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #D7D7D7;
+	border-left-color: #D7D7D7;
+}
+.t_border td{
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #D7D7D7;
+	border-bottom-color: #D7D7D7;
+	vertical-align: top;
+	padding: 5px;
+}
+.t_border th{
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #D7D7D7;
+	border-bottom-color: #D7D7D7;
+	background-color: #F3F3F3;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.pdf{
+	background-image: url(../images/pdf_ico.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 30px;
+}
+.italic{font-style: italic;}
+

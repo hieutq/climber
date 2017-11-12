@@ -1,0 +1,67 @@
+<div id="contents_Right">
+<div id="topics">
+<?=$topics?>
+</div>
+<div id="whatsnew">
+<div><img src="images/news_ttl.jpg" width="580" height="48" /></div>
+<div id="wn_scroll">
+<table class="whatsnew">
+<?=$infomation?>
+</table>
+</div>
+</div>
+<div id="bannerarea">
+<div class="marB10"><a href="../hanashi/index.html"><img src="images/bnr.jpg" alt="軽金属が創る未来" width="160" height="88" class="hoverImg" /></a></div>
+<dl id="seizou">
+<dt><img src="images/btn_seizou.jpg"></dt>
+<dd>板：<br>
+<ul>
+<li><a href="http://www.uacj.co.jp/aluminum/index.htm?p=5">株式会社UACJ</a></li>
+<li><a href="http://www.kobelco.co.jp/products/visual_tour/moka_works/index.html">株式会社神戸製鋼所</a></li>
+</ul>
+押出：<br>
+<ul>
+<li><a href="http://material.st-grp.co.jp/tour/index.html">三協立山株式会社 三協マテリアル社</a></li>
+</ul>
+</dd>
+</dl>
+<script type="text/javascript">
+    $(function(){
+        $("#seizou dt").live("click", function() {
+            $(this).next().slideToggle();
+        });
+    });
+</script>
+<div style="margin-bottom: 10px;">
+	<a href="./?mode=contact2"><img src="./images/contact2_banner_image.jpg" width="160" height="25" border="0"></a><br>
+</div>
+<!-- <div class="side_buttons">
+	<a href="./?mode=contact2">維持会委員<br>技術相談室</a>
+</div> -->
+<div id="company">
+<ul>
+<script type="text/javascript">
+var randObjects=[
+	'<a href="http://www.malco.co.jp/ja/index.html" target="_blank"><img src="images/banner/16.jpg" class="hoverImg"></a>',
+	'<a href="http://www.nikkeikin.co.jp/" target="_blank"><img src="images/banner/20.jpg" class="hoverImg"></a>',
+	'<a href="http://www.kobelco.co.jp/" target="_blank"><img src="images/banner/21.jpg" class="hoverImg"></a>',
+	'<a href="http://www.sdk.co.jp/index.html" target="_blank"><img src="images/banner/148.jpg" class="hoverImg"></a>',
+	'<a href="http://www.uacj.co.jp/" target="_blank"><img src="images/banner/23.jpg" class="hoverImg"></a>'
+];
+function randWrite() {
+	var rr = parseInt(Math.random() * randObjects.length);
+	document.write(randObjects.slice(rr,rr+1)[0]);
+	randObjects.splice(rr,1);
+}
+</script>
+<li><script type="text/javascript">randWrite()</script></li>
+<li><script type="text/javascript">randWrite()</script></li>
+<li><script type="text/javascript">randWrite()</script></li>
+<li><script type="text/javascript">randWrite()</script></li>
+<li><script type="text/javascript">randWrite()</script></li>
+</ul>
+<!--ul>
+<?=$link_bnr?>
+</ul--> 
+</div>
+</div>

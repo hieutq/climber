@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">講演ファイル 編集</div>
+<form method="POST" action="<?=$action?>" enctype="multipart/form-data">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<p class="mini_title">▼ファイル情報入力</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">タイトル：</td>
+		<td class="value_col"><input type="text" name="file_title" value="<?=$dsp['file_title']?>" style="width: 250px;"></td>
+	</tr>
+	<tr>
+		<td class="index_col">表示：</td>
+		<td class="value_col"><select name="file_view">
+<?=
+	html_options(
+		$op_arr = $file_view_type,
+		$selected = $dsp['file_view']
+	);
+?>
+		</select></td>
+	</tr>
+	<tr>
+		<td class="index_col">アップロード：</td>
+		<td class="value_col"><input type="file" name="upfile" style="border: none;" /></td>
+	</tr>
+
+
+</table>
+
+
+<br>
+<input type="hidden" name="file_id" value="<?=$dsp['file_id']?>">
+<input type="hidden" name="convention_id" value="<?=$dsp['convention_id']?>">
+<input type="hidden" name="file_extension" value="<?=$dsp['file_extension']?>">
+<input type="hidden" name="file_name" value="<?=$dsp['file_name']?>">
+<input type="hidden" name="content_type" value="<?=$dsp['content_type']?>">
+<br>
+
+
+<br>
+
+<br>
+<div style="text-align: center;">
+<input type="submit" value="<?=$submit?>" name="OK_1">
+<input type="submit" value="<?=$submit_back?>" name="BACK">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

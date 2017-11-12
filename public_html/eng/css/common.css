@@ -1,0 +1,35 @@
+.mp0{margin:0;padding:0;}
+.marT5{margin-top:5px;}
+.marT10{margin-top:10px;}
+.marT15{margin-top:15px;}
+.marT20{margin-top:20px;}
+.marB5{margin-bottom:5px;}
+.marB10{margin-bottom:10px;}
+.marB15{margin-bottom:15px;}
+.marB20{margin-bottom:20px;}
+.marL5{margin-left:5px;}
+.marL10{margin-left:10px;}
+.marL15{margin-left:15px;}
+.marL20{margin-left:20px;}
+.marR5{margin-right:5px;}
+.marR10{margin-right:10px;}
+.marR15{margin-right:15px;}
+.marR20{margin-right:20px;}
+
+.alignC{text-align:center}
+.alignL{text-align:left}
+.alignR{text-align:right}
+.alignT{vertical-align:top;}
+.alignM{vertical-align:middle;}
+
+.thumbL {
+    float: left;
+    margin: 0 15px 10px 0;
+    padding: 0;
+}
+.thumbR {
+    float: right;
+    margin:0 0 10px 15px;
+    padding: 0;
+}
+.description {overflow: hidden;}

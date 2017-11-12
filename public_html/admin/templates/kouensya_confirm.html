@@ -1,0 +1,297 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><?=$title?></title>
+<link rel="stylesheet" href="./css/admin.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/admin2.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="admin_cts">
+<div id="title">講演申込者 編集</div>
+<form method="POST" action="<?=$action?>">
+<table class="search_tbl">
+<tr>
+<th>■<?=$title2?></th>
+<td>
+<? if($err_msg != ""){ ?>
+<span style="color:red"><?=$err_msg?></span><br>
+<? } ?>
+
+<p class="mini_title top_info_text">内容をご確認下さい</p>
+
+<p class="mini_title">▼講演内容</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+
+	<tr>
+		<td class="index_col" width="150">旧講演形式：</td>
+		<td class="value_col"><?=$kouen_keishiki_options[ $dsp['kouen_keishiki'] ]?></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">旧講演分類：</td>
+		<td class="value_col"><?=$kouen_type_options[ $dsp['kouen_type'] ]?></td>
+	</tr>
+
+<tr>
+<td class="index_col" width="150">講演形式</td>
+<td class="value_col"><?=$kouen_head_options[ $dsp['kouen_head'] ]?></td>
+</tr>
+<tr style="<?=$kouen_section_style?>">
+<td class="index_col" width="150">講演分類</td>
+<td class="value_col">
+[大分類・対象材料]<br>
+&raquo;&nbsp;<?=$CONFIG_TYPE_SECTION_HEAD[ $dsp['kouen_section_head'] ]?><br>
+[小分類1・用途]<br>
+&raquo;&nbsp;<?=$CONFIG_TYPE_SECTION_HEAD_1[ $dsp['kouen_section_head_1'] ]?><br>
+[小分類2・現象]<br>
+&raquo;&nbsp;<?=$CONFIG_TYPE_SECTION_HEAD_2[ $dsp['kouen_section_head_2'] ]?><br>
+[小分類3・検出・解析方法]<br>
+&raquo;&nbsp;<?=$CONFIG_TYPE_SECTION_HEAD_3[ $dsp['kouen_section_head_3'] ]?><br>
+[小分類4・目的]<br>
+&raquo;&nbsp;<?=$CONFIG_TYPE_SECTION_HEAD_4[ $dsp['kouen_section_head_4'] ]?><br>
+[小分類5・材料形状]<br>
+&raquo;&nbsp;<?=$CONFIG_TYPE_SECTION_HEAD_5[ $dsp['kouen_section_head_5'] ]?><br>
+</td>
+</tr>
+	<tr>
+		<td class="index_col" width="150">和文題目：</td>
+		<td class="value_col"><?=$dsp[ 'kouen_title' ]?></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">英文題目：</td>
+		<td class="value_col"><?=$dsp[ 'kouen_title_eng' ]?></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">講演要旨：</td>
+		<td class="value_col"><?=nl2br($dsp[ 'kouen_cmnt1' ])?></textarea></td>
+	</tr>
+</table>
+<br />
+
+
+
+<p class="mini_title">▼発表者・補佐</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150">発表者：</td>
+		<td class="value_col"><?=$dsp['kouen_hapyo_uid']?></td>
+	</tr>
+	<tr>
+		<td class="index_col" width="150">１：<br /><span class="min bold blue" id="dropdown_1">▼次のリスト</span></td>
+		<td class="value_col">
+<span class="blue">※一人目は代表者となります。</span><br />
+会員番号：<?=$dsp['member_userid'][0]?><br />
+会員区分：<?=$member_kubun_options[ $dsp['member_kubun01'][0] ]?><br />
+　　氏名：<?=$dsp['member_name'][0]?><br />
+ローマ字：<?=$dsp['member_name_eng'][0]?><br />
+　　所属：<?=$dsp['member_info01'][0]?><br />
+<!--　　発表：<?=$hapyo_options[ $dsp['member_hapyo'][0] ]?><br />-->
+		</td>
+	</tr>
+</table>
+
+<div id="dropdown_1_contents">
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150" style="border-top: none;">２：</td>
+		<td class="value_col" style="border-top: none;">
+会員番号：<?=$dsp['member_userid'][1]?><br />
+会員区分：<?=$member_kubun_options[ $dsp['member_kubun01'][1] ]?><br />
+　　氏名：<?=$dsp['member_name'][1]?><br />
+ローマ字：<?=$dsp['member_name_eng'][1]?><br />
+　　所属：<?=$dsp['member_info01'][1]?><br />
+<!--　　発表：<?=$hapyo_options[ $dsp['member_hapyo'][1] ]?><br />-->
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="dropdown_2_contents">
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150" style="border-top: none;">３：</td>
+		<td class="value_col" style="border-top: none;">
+会員番号：<?=$dsp['member_userid'][2]?><br />
+会員区分：<?=$member_kubun_options[ $dsp['member_kubun01'][2] ]?><br />
+　　氏名：<?=$dsp['member_name'][2]?><br />
+ローマ字：<?=$dsp['member_name_eng'][2]?><br />
+　　所属：<?=$dsp['member_info01'][2]?><br />
+<!--　　発表：<?=$hapyo_options[ $dsp['member_hapyo'][2] ]?><br />-->
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="dropdown_3_contents">
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150" style="border-top: none;">４：</td>
+		<td class="value_col" style="border-top: none;">
+会員番号：<?=$dsp['member_userid'][3]?><br />
+会員区分：<?=$member_kubun_options[ $dsp['member_kubun01'][3] ]?><br />
+　　氏名：<?=$dsp['member_name'][3]?><br />
+ローマ字：<?=$dsp['member_name_eng'][3]?><br />
+　　所属：<?=$dsp['member_info01'][3]?><br />
+<!--　　発表：<?=$hapyo_options[ $dsp['member_hapyo'][3] ]?><br />-->
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="dropdown_4_contents">
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150" style="border-top: none;">５：</td>
+		<td class="value_col" style="border-top: none;">
+会員番号：<?=$dsp['member_userid'][4]?><br />
+会員区分：<?=$member_kubun_options[ $dsp['member_kubun01'][4] ]?><br />
+　　氏名：<?=$dsp['member_name'][4]?><br />
+ローマ字：<?=$dsp['member_name_eng'][4]?><br />
+　　所属：<?=$dsp['member_info01'][4]?><br />
+<!--　　発表：<?=$hapyo_options[ $dsp['member_hapyo'][4] ]?><br />-->
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="dropdown_5_contents">
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150" style="border-top: none;">６：</td>
+		<td class="value_col" style="border-top: none;">
+会員番号：<?=$dsp['member_userid'][5]?><br />
+会員区分：<?=$member_kubun_options[ $dsp['member_kubun01'][5] ]?><br />
+　　氏名：<?=$dsp['member_name'][5]?><br />
+ローマ字：<?=$dsp['member_name_eng'][5]?><br />
+　　所属：<?=$dsp['member_info01'][5]?><br />
+<!--　　発表：<?=$hapyo_options[ $dsp['member_hapyo'][5] ]?><br />-->
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="dropdown_6_contents">
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150" style="border-top: none;">７：</td>
+		<td class="value_col" style="border-top: none;">
+会員番号：<?=$dsp['member_userid'][6]?><br />
+会員区分：<?=$member_kubun_options[ $dsp['member_kubun01'][6] ]?><br />
+　　氏名：<?=$dsp['member_name'][6]?><br />
+ローマ字：<?=$dsp['member_name_eng'][6]?><br />
+　　所属：<?=$dsp['member_info01'][6]?><br />
+<!--　　発表：<?=$hapyo_options[ $dsp['member_hapyo'][6] ]?><br />-->
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="dropdown_7_contents">
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150" style="border-top: none;">８：</td>
+		<td class="value_col" style="border-top: none;">
+会員番号：<?=$dsp['member_userid'][7]?><br />
+会員区分：<?=$member_kubun_options[ $dsp['member_kubun01'][7] ]?><br />
+　　氏名：<?=$dsp['member_name'][7]?><br />
+ローマ字：<?=$dsp['member_name_eng'][7]?><br />
+　　所属：<?=$dsp['member_info01'][7]?><br />
+<!--　　発表：<?=$hapyo_options[ $dsp['member_hapyo'][7] ]?><br />-->
+		</td>
+	</tr>
+</table>
+</div>
+<br />
+
+
+<p class="mini_title">▼申込者情報</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col">会員番号：</td>
+		<td class="value_col"><?=$dsp['kouen_userid']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">氏名：</td>
+		<td class="value_col"><?=$dsp['kouen_name']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">勤務先/学校：</td>
+		<td class="value_col"><?=$dsp['kouen_info01']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">メールアドレス：</td>
+		<td class="value_col"><?=$dsp['kouen_mail']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">郵便番号：</td>
+		<td class="value_col"><?=$dsp['kouen_zip1']?>-<?=$dsp['kouen_zip2']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">住所：</td>
+		<td class="value_col"><?=$dsp['kouen_address']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">電話番号：</td>
+		<td class="value_col"><?=$dsp['kouen_tel']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">FAX番号：</td>
+		<td class="value_col"><?=$dsp['kouen_fax']?></td>
+	</tr>
+	<tr>
+		<td class="index_col">区分：</td>
+		<td class="value_col"><?=$member_kubun_options[ $dsp['kouen_kubun01'] ]?></td>
+	</tr>
+</table>
+
+<br />
+
+
+
+<p class="mini_title">▼入金情報</p>
+
+<table class="inner_tbl" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td class="index_col" width="150">入金：</td>
+		<td class="value_col"><?=$pay_options[ $dsp['pay_status'] ]?></td>
+	</tr>
+
+	<tr>
+		<td class="index_col" width="150">入金日：</td>
+		<td class="value_col"><?=$pay_date?></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">支払い方法：</td>
+		<td class="value_col"><?=$pay_way_type[ $dsp['pay_way'] ]?></td>
+	</tr>
+
+	<tr>
+		<td class="index_col">備考：</td>
+		<td class="value_col"><?=$dsp['kouen_biko1']?></td>
+	</tr>
+</table>
+
+<br>
+
+<br>
+<div style="text-align: center;">
+<input type="submit" value="<?=$submit?>" name="OK_2">
+<input type="submit" value="<?=$submit_back?>" name="BACK">
+</div>
+<br>
+</td></tr></table>
+</td>
+</tr>
+</table>
+<input type="hidden" name="convention_id" value="<?=$dsp['convention_id']?>">
+<input type="hidden" name="kouensya_id" value="<?=$dsp['kouensya_id']?>">
+<input type="hidden" name="kouen_uid" value="<?=$dsp['kouen_uid']?>">
+<input type="hidden" name="kouen_id" value="<?=$dsp['kouen_id']?>">
+</form>
+
+</body>
+</html>

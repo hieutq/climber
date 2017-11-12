@@ -1,0 +1,212 @@
+/*----------------------------------------------------------------------------
+******************************************************************************
+Basic
+******************************************************************************
+----------------------------------------------------------------------------*/
+
+body{
+	margin: 0px;
+	padding: 0px;
+	background-image: url(http://testsite.applicats.co.jp/03/applied_cms/images/common/bg.jpg);
+	background-repeat: repeat-x;
+}
+
+html,body{height: 100%;}
+
+body,h1,h2,h4,h4,h5,h6,td,th,p,div,input,textarea,pre,ul,ol{
+font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+font-size:small;
+color:#333333;
+font-weight:normal;
+line-height:1.6em;
+line-break:strict;
+voice-family:"\"}\"";
+voice-family:inherit;
+}
+
+a{overflow:hidden;}
+a:link{
+	color:#069;
+	text-decoration:underline;
+}/*通常時のリンク設定*/
+a:visited{
+	color:#069;
+	text-decoration:underline;
+}/*クリック後のリンク設定*/
+a:hover{
+	color:#069;
+	text-decoration:none;
+}/*マウスオーバー時のリンク設定*/
+a:active{
+	color:#069;
+	text-decoration:none;
+}/*クリック時のリンク設定*/
+embed{vertical-align: bottom;}
+strong{font-weight: bold;}
+p{
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+}
+fieldset{
+	padding: .5em 2em;
+	border: 1px red dotted;
+	color: red;
+	margin-bottom: 1em;
+}
+fieldset legend{
+	padding: .5em 1em;
+	background: red;
+	color: white;
+}
+
+.crr{
+font-size:0;
+line-height:0;
+padding:0;
+margin:0;
+clear:both;
+}
+
+.clearfix:after{content: "."; display: block; height: 0;  clear: both; visibility: hidden;}
+.clearfix{display:inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix{height:1%;}
+.clearfix{display:block;}
+/* End hide from IE-mac */
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+wrap
+******************************************************************************
+----------------------------------------------------------------------------*/
+#wrap{
+	width: 1000px;
+	margin-right: auto;
+	margin-left: 50px;
+}
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+Header
+******************************************************************************
+----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+menu
+******************************************************************************
+----------------------------------------------------------------------------*/
+#menu{
+	width: 0px;
+}
+#menu ul{
+	clear: both;
+	float: none;
+}
+#menu li{
+
+}
+#menu li a{
+}
+
+.list01 li{
+	background-image: url(../images/list.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+footer
+******************************************************************************
+----------------------------------------------------------------------------*/
+#footer{}
+#ft_box{}
+/*----------------------------------------------------------------------------
+******************************************************************************
+contents
+******************************************************************************
+----------------------------------------------------------------------------*/
+#con_L{
+	float: left;
+	width: 180px;
+}
+
+#con_R{
+	width: 980px;
+	padding-right: 20px;
+	float: right;
+	padding-top: 30px;
+}
+#con_R blockquote{
+	border-left: 2px dotted #999;
+	margin-left: 15px;
+	padding-left: 1em;
+}
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+h
+******************************************************************************
+----------------------------------------------------------------------------*/
+h1{}
+h2{
+	background-image: url(../images/h2.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	color: #333;
+	font-size: 18px;
+	font-weight: bold;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	height: 31px;
+	padding-left: 55px;
+	margin-bottom: 10px;
+}
+h3{
+	border-left: 3px solid #A0A0A0;
+	padding: 5px 15px;
+	margin: 15px 0;
+	font-weight: bold;
+}
+h4{
+	color: red;
+}
+h5{}
+h6{}
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+table
+******************************************************************************
+----------------------------------------------------------------------------*/
+table {
+	border-top:1px solid #A0A0A0;
+	border-left:1px solid #A0A0A0;
+	border-collapse:collapse;
+	border-spacing:0;
+	background-color:#ffffff;
+	empty-cells:show;
+	margin: 20px 0;
+}
+table th {
+  border-right:1px solid #A0A0A0;
+  border-bottom:1px solid #A0A0A0;
+  background-color:#DDD;
+  background-image:url(http://artib.net/demo1/img/table-back.gif);
+  background-position:left top;
+  padding:0.3em 1em;
+  text-align:center;
+	font-size: 14px;
+	font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+	height: 36px;
+}
+table td {
+  border-right:1px solid #A0A0A0;
+  border-bottom:1px solid #A0A0A0;
+  padding:0.3em 1em;
+	font-size: 12px;
+	font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+}

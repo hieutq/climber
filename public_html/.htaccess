@@ -1,0 +1,11 @@
+#AuthUserFile /home/jilm/public_html/.htpasswd
+#AuthGroupFile /dev/null
+#AuthName "Secret Area"
+#AuthType Basic
+#require valid-user
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^jilm\.or\.jp$
+RewriteRule ^(.*)$ http://www.jilm.or.jp/$1 [R=301,L]
+
+AddType application/x-httpd-php .htm .html

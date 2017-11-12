@@ -1,0 +1,19 @@
+<h2>検索結果</h2>
+<div class="main_box">
+<p>【<strong><?=$search_site_keyword?></strong>】で検索した結果</p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="kekka">
+<?
+$dsp_cnt = count( $dsp );
+for ( $i=0;$i<$dsp_cnt;$i++) {
+?>
+<tr>
+<td class="ico"><img src="images/news_ico.jpg" alt="" width="10" height="10" /></td>
+<td><strong><a href="?mode=content&pid=<?=$dsp[$i]['contents_id']?>">検索結果│<?=$dsp[$i]['page_title']?></a></strong>
+<p><?=$dsp[$i]['page_body']?></p></td>
+</tr>
+<?
+}
+?>
+
+</table>
+</div>

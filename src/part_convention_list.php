@@ -1,0 +1,189 @@
+<?php
+// *******************************************************************
+// 大会情報　PHP　Encording UTF-8
+// *******************************************************************
+
+	// 現在日付
+	$now_date = date( 'Ymd' );
+
+	// 一覧出力
+	$tbl = '';
+	$cnn  = db_connect(CMN_HOST, CMN_USER, CMN_PASS, CMN_DATB, CMN_PORT);
+	$sql  = "SELECT * FROM convention_data";
+	$sql .= "    WHERE";
+	$sql .= "         view_status = 1 AND";
+	$sql .= "         status = 0";
+	$sql .= "    ORDER BY -convention_id";
+	$res  = cn_query($sql, $cnn);
+
+	if ($res == true){
+		$max_cnt = cn_count($res);
+
+		// データの頁表示
+		for ($i=0; $i<$max_cnt; $i++) {
+
+			$convention_id = cn_contract($res, $i, "convention_id");
+			$conv_name     = cn_contract($res, $i, "conv_name");
+			$conv_open     = cn_contract($res, $i, "conv_open");
+			$conv_place    = cn_contract($res, $i, "conv_place");
+			$kouen_open    = cn_contract($res, $i, "kouen_open");
+			$kouen_close   = cn_contract($res, $i, "kouen_close");
+			$sanka_open    = cn_contract($res, $i, "sanka_open");
+			$sanka_close   = cn_contract($res, $i, "sanka_close");
+			$type_text     = cn_contract($res, $i, "type_text");
+			$body_text     = cn_contract($res, $i, "body_text");
+
+			$kouen_open_flg = 0;
+			if ( $now_date >= $kouen_open && $now_date <= $kouen_close ) {
+				$kouen_open_flg = 1;
+			}
+
+			$sanka_open_flg = 0;
+			if ( $now_date >= $sanka_open && $now_date <= $sanka_close ) {
+				$sanka_open_flg = 1;
+			}
+
+			$kouen_exist_flg = FALSE;
+			if ( $kouen_open_flg == 1 ) {
+				$kouen_exist_flg = kouensya_Data_Userid_Double_Check(
+										$_SESSION[ LOGIN_SESSION_NAME ][ 'userid' ],
+										$convention_id
+									);
+			}
+
+			// 登録ファイル読み込み
+			$file_lists = convention_File_Data_Read_By_Conv_ID( $convention_id );
+			$file_cnt = count( $file_lists );
+			$save_file = '../file/conv/' . $convention_id . '/';
+
+			$file_link = array();
+			for( $j=0;$j<$file_cnt;$j++ ) {
+				$file_link[$j] = '<a href="' . $save_file . $file_lists[$j]['file_name' ] . '" target="_blank">'
+							 . $file_lists[$j]['file_title' ]
+							 . '</a>';
+			}
+
+			$convention_list_tbl .= '<tr';
+			if ( $i % 2 ) {
+				$convention_list_tbl .= ' class="off"';
+			} else {
+				$convention_list_tbl .= ' class="on"';
+			}
+			$convention_list_tbl .= '>' . "\n";
+			$convention_list_tbl .= '<td>';
+			$convention_list_tbl .= $conv_name;
+			$convention_list_tbl .= '</td>' . "\n";
+			$convention_list_tbl .= '<td>';
+			$convention_list_tbl .= $conv_open;
+			if ( isset( $file_link ) ) {
+				$convention_list_tbl .= '<br>';
+				for( $j=0;$j<$file_cnt;$j++ ) {
+					$convention_list_tbl .= '【' . $file_link[$j] . '】&nbsp;';
+				}
+			}
+			if ( $kouen_exist_flg ) {
+
+				$kouen_entry_array = kouensya_Read_By_UserID( $_SESSION[ LOGIN_SESSION_NAME ][ 'userid' ], $convention_id );
+				$kouen_entry_cnt = count( $kouen_entry_array );
+				$convention_list_tbl .= '<div id="dropdown_1_contents" style="display: none">'
+									 .  '----------------------------------- <br />'
+									 .  '【現在登録されている講演一覧】<br />';
+
+					for ( $j=0;$j<$kouen_entry_cnt;$j++ ) {
+						if ( mb_strlen( $kouen_entry_array[$j]['kouen_title'], 'UTF-8' ) > 10 ) {
+							$kouen_entry_array[$j]['kouen_title'] = mb_substr( $kouen_entry_array[$j]['kouen_title'], 0, 10 ) . '...';
+						}
+						$convention_list_tbl .= '受付番号：' . $kouen_entry_array[$j]['kouen_uid'] . '<br />'
+											 .  '<span style="font-weight: bold;">' . $kouen_entry_array[$j]['kouen_title'] . '</span>'
+											 .  '&nbsp;<a href="./?mode=conv_kouen_edit&kid='
+											 . $kouen_entry_array[$j]['kouen_id'] . '&cid=' . $convention_id . '">'
+											 . '&raquo;&nbsp;編集する</a><br /><br />';
+					}
+
+				$convention_list_tbl .= '----------------------------------- <br />'
+									 .  '</div>';
+
+			}
+			$convention_list_tbl .= '</td>' . "\n";
+			$convention_list_tbl .= '<td>' . $conv_place . '</td>' . "\n";
+			$convention_list_tbl .= '<td>';
+/*			$pdf_file = './pdf/conv/' . $convention_id . '/pdf_1.pdf';
+			if ( file_exists( $pdf_file ) ) {
+				$convention_list_tbl .= '<a href="' . $pdf_file . '" target="_blank">講演題目一覧</a><br />';
+			}
+*/
+			if ( $kouen_open_flg == 1 ) {
+				if ( $config_login_flg ) {
+					$convention_list_tbl .= '<a href="./?mode=content&pid=33&cid=' . $convention_id . '">【講演申込】</a><br />';
+				}
+				if ( $kouen_exist_flg ) {
+						$convention_list_tbl .= '<a id="dropdown_1" href="#">【講演申込一覧・編集】</a><br />';
+				}
+			}
+			if ( $sanka_open_flg == 1 ) {
+				if ( ! $config_login_flg ) {
+					$convention_list_tbl .= '<a href="./?mode=content&pid=34&cid=' . $convention_id . '">【参加申込】</a><br />';
+				} else {
+
+					if ( sankasya_Data_Userid_Double_Check( $_SESSION[ LOGIN_SESSION_NAME ][ 'userid' ], $convention_id ) ) {
+//						$convention_list_tbl .= '<a href="./?mode=conv_sanka_edit">【参加内容編集】</a><br />';
+						$convention_list_tbl .= '【参加申込済】<br />';
+					} else {
+						$convention_list_tbl .= '<a href="./?mode=content&pid=34&cid=' . $convention_id . '">【参加申込】</a><br />';
+					}
+				}
+			}
+
+
+			$convention_list_tbl .= '</td>' . "\n";
+			$convention_list_tbl .= '</tr>' . "\n";
+
+
+
+
+		}
+	}
+
+	db_close($cnn);
+
+
+
+
+	$pid = $_GET[ "pid" ];
+	if( $pid != "" ){
+
+		// セッションクリア
+		Jilm_Contents_Session_clear();
+
+		Jilm_Contents_Read_1( $pid );
+
+		// 非公開の場合はエラー表示
+		if( $_SESSION[ "JILM_CONTENTS_STATUS" ] > 0 ){
+			header( "Location: http://" . $_SERVER[ "HTTP_HOST" ] . "/?mode=pgerror" );
+			exit;
+		}
+
+		// 階層表示
+		$cnn  = db_connect(CMN_HOST, CMN_USER, CMN_PASS, CMN_DATB, CMN_PORT);
+		$sql  = " SELECT * FROM content_category";
+		$sql .= " WHERE ctgr_id = '" . $_SESSION[ "JILM_CONTENTS_CTGR" ] . "'";
+		$res  = cn_query($sql, $cnn);
+		if ($res == true){
+			$class_tmp = cn_contract($res, 0, "ctgr_name");
+			$ctgr_fold = cn_contract($res, 0, "ctgr_oya");
+			$_SESSION[ "JILM_CLASS_LIST" ] = "<li>" . $class_tmp . "</li>\n";
+		}
+		db_close($cnn);
+
+		// 親がある場合は親の名前追加
+		if( $ctgr_fold != "0" ){
+			Jilm_Fold_List_3( $ctgr_fold );
+		}
+
+		$action   = "./?mode=content&pid=" . $pid;
+		$title    = $_SESSION[ "JILM_CONTENTS_TITLE" ];
+		$class    = $_SESSION[ "JILM_CLASS_LIST" ] . "<li>" . $_SESSION[ "JILM_CONTENTS_TITLE" ] . "</li>\n";
+//		$contents = $_SESSION[ "JILM_CONTENTS_BODY" ];
+	}
+
+?>

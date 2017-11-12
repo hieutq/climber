@@ -1,0 +1,299 @@
+/*----------------------------------------------------------------------------
+******************************************************************************
+Basic
+******************************************************************************
+----------------------------------------------------------------------------*/
+
+body{
+	margin: 0px;
+	padding: 0px;
+	background-image: url(../images/mainbg.jpg);
+	background-repeat: repeat-x;
+	min-width:940px;
+}
+
+html,body{height: 100%;}
+
+body,h1,h2,h4,h4,h5,h6,td,th,p,div,input,textarea,pre,ul,ol{
+	font-family:"ＭＳ Ｐゴシック", "Hiragino kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif;
+	font-size:small;
+	font-weight:normal;
+	line-height:1.8em;
+	line-break:strict;
+	voice-family:"\"}\"";
+	voice-family:inherit;
+	color:#333333;
+}
+input{line-height:1em;}/* textボックスの行間は元通りにします */
+a{overflow:hidden;}
+a:link{color:#009999;text-decoration:none;}/* 通常時のリンク設定 */
+a:visited{color:#009999;text-decoration:none;}/* クリック後のリンク設定 */
+a:hover{color:#009999;text-decoration:underline;}/* マウスオーバー時のリンク設定 */
+a:active{color:#009999;text-decoration:none;}/* クリック時のリンク設定 */
+embed{vertical-align: bottom;}
+strong{font-weight: bold;}
+p{
+	margin-bottom: 20px;
+}
+
+.crr{
+font-size:0;
+line-height:0;
+padding:0;
+margin:0;
+clear:both;
+}
+
+.clearfix:after{content: "."; display: block; height: 0;  clear: both; visibility: hidden;}
+.clearfix{display:inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix{height:1%;}
+.clearfix{display:block;}
+/* End hide from IE-mac */
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+wrap
+******************************************************************************
+----------------------------------------------------------------------------*/
+#wrap{width: 940px;margin-right: auto;margin-left: auto;}
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+Header
+******************************************************************************
+----------------------------------------------------------------------------*/
+#hd{
+	height: 88px;
+	width: 940px;
+	margin-bottom: 20px;
+}
+#hd_right{float: right;margin-top: 14px;width: 400px;}
+
+/* ---- 検索---- */
+#search dt{width: 130px;float: left;}
+#search dd{float: right;width: 260px;}
+#searchform1 {position: relative;}
+#keywords1	{
+	width: 200px;
+	height: 14px;
+	border: 1px solid #CCC;
+	padding: 2px 2px 2px 2px;
+	line-height: 100%;
+}
+#searchBtn1	{position: absolute;top: 0;left: 213px;}
+
+#hdr_menu{margin-top: 6px;overflow: hidden;}
+
+#hdr_menu img{float: left;}
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+左サイドメニュー
+******************************************************************************
+----------------------------------------------------------------------------*/
+#contents_Left{
+	float: left;
+	width: 160px;
+	position: fixed;
+}
+
+
+
+/* ---- サブメニュー ---- */
+#submenu_box{
+	width: 160px;
+	background-image: url(../images/menu_ft.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	margin-bottom: 10px;
+	padding-bottom: 1px;
+}
+#submenu{
+	background-color: #FFFFFF;
+	background-image: url(../images/menu_hd.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding-top: 5px;
+	padding-bottom: 3px;
+}
+#submenu ul{background-image: url(../images/menu_bg.gif);background-repeat: repeat-y;}
+#submenu li{
+	width: 150px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 2px;
+	font-size: 12px;
+}
+#submenu li ul{
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #BBE1DE;
+	zoom: 1;
+	margin-top: 5px;
+}
+#submenu li ul li{
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #BBE1DE;
+	border-bottom-color: #BBE1DE;
+	border-left-color: #BBE1DE;
+	padding: 0px;
+	border-top-width: 0px;
+	border-top-style: solid;
+	margin: 0px;
+	width: 148px;
+	zoom: 1;
+}
+#submenu li ul li a{
+	display: block;
+	text-decoration: none;
+	background-color: #E8F1F1;
+	background-image: url(../images/submanu.gif);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	border: 1px solid #FFFFFF;
+	padding: 5px 5px 5px 15px;
+	color: #355757;
+	zoom: 1;
+}
+#submenu li ul li a:hover{	display: block;
+	display: block;
+	text-decoration: underline;
+	background-color: #D9E8E8;
+	background-image: url(../images/submanu.gif);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	border: 1px solid #FFFFFF;
+	padding: 5px 5px 5px 15px;}
+
+#submenu li ul li ul{
+	border-top-width: 0px;
+	border-top-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+#submenu li ul li ul li{
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	padding: 0px;
+	border-top-width: 0px;
+	border-top-style: none;
+	margin: 0px;
+}
+#submenu li ul li ul li a{
+	background-color: #DBE8E8;
+	color: #355757;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 20px;
+	font-size: 11px;
+	background-image: url(../images/submanu.gif);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	border-bottom-style: none;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	line-height: 1.4em;
+	margin-bottom: 1px;
+}
+#submenu li ul li ul li a:hover{
+	background-color: #C1D9D9;
+	color: #355757;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 20px;
+	font-size: 11px;
+	background-image: url(../images/submanu.gif);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin-bottom: 1px;
+}
+/*----------------------------------------------------------------------------
+******************************************************************************
+メインコンテンツ
+******************************************************************************
+----------------------------------------------------------------------------*/
+#contents{
+	width: 940px;
+}
+#contents_Right{width: 760px;float: right;}
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+footer
+******************************************************************************
+----------------------------------------------------------------------------*/
+#footer{
+	background-image: url(../images/ft_bg.jpg);
+	margin-top: 15px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 11px;
+	color: #5B9B9B;
+	letter-spacing: 1px;
+}
+
+
+/*----------------------------------------------------------------------------
+******************************************************************************
+h
+******************************************************************************
+----------------------------------------------------------------------------*/
+h1{float: left;margin-top: 15px;}
+h2{
+	background-image: url(../images/h2.jpg);
+	background-repeat: no-repeat;
+	height: 48px;
+	line-height: 48px;
+	vertical-align: middle;
+	padding-left: 35px;
+	font-size: 18px;
+	font-weight: bold;
+}
+h3{
+	font-weight: bold;
+	background-color: #068685;
+	color: #FFF;
+	margin-bottom: 10px;
+	margin-top: 15px;
+	background-image: url(../images/h3.jpg);
+	background-repeat: no-repeat;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	font-size: 18px;
+}
+h4{
+	font-size: 16px;
+	font-weight: bold;
+	color: #068685;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #EDEBEB;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	padding-left: 19px;
+	background-image: url(../images/news_ico.jpg);
+	background-repeat: no-repeat;
+	background-position: 3px 10px;
+}
+h5{font-weight: bold;}
+h6{}

@@ -1,0 +1,467 @@
+@charset "UTF-8";
+
+/* 初回リセット */
+
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, pre, blockquote, th, td, form, fieldset, input, textarea, hr {
+	margin: 0;
+	padding: 0;
+	background-color: White;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+em, strong, code, address, th {
+	font-weight: normal;
+	font-style: normal;
+}
+ul, ol {
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+th {
+	text-align: left;
+}
+hr, img {
+	border: 0;
+}
+.clr {clear: both;height: 0;}
+.clr hr {width: 0;height: 0;visibility: hidden;}
+* html .clr hr {display: none;}
+
+/* 基本定義 */
+
+body {
+	min-width: 794px;
+	scrollbar-arrow-color: #330000;
+	scrollbar-face-color: #9079b6;
+	scrollbar-highlight-color: #9079b6;
+	scrollbar-shadow-color: #9079b6;
+	scrollbar-3dlight-color: #6666cc;
+	scrollbar-darkshadow-color: #000099;
+	scrollbar-track-color: #6a98c2;
+	font-size: 10pt;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+	overflow: auto;
+}
+
+p, td, th {
+	font-size: 10pt;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+}
+
+textarea { font-size: 11px; }
+
+div#admin_cts {
+	margin: 20px 0 0 20px;
+	overflow: auto;
+}
+
+input, select, textarea {
+	border: 1px solid #00aaaa;
+}
+
+input.submit {
+	padding: 5px 20px;
+	border: 1px solid #00aaaa;
+	cursor: hand;
+}
+
+div#system_menu {
+	display: block;
+	width: 150px;
+	padding: 20px 0;
+	line-height: 2.2em;
+	background-color: Black;
+	text-align: center;
+}
+div#system_menu img {
+	margin-left: 15px;
+}
+div#system_menu a {
+	color: #FFB90F;
+	font-weight: bold;
+	vertical-align: top;
+	text-decoration: none;
+}
+
+div#sub_system {
+	display: block;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	color: Black;
+	font-weight: bold;
+	background-color: White;
+	text-align: center;
+	padding-top: 5px;
+}
+
+div#menu a {
+	display: block;
+	width: 150px;
+	height: 27px;
+	line-height: 27px;
+	color: White;
+	background: url(../css/menu_bk.gif) no-repeat;
+	margin-bottom: 1px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-decoration: none;
+	text-align: left;
+	padding-left: 12px;
+	font-size: 10px;
+	font-family: "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "sans-serif";
+}
+
+div#menu a span.arrow {
+	float: right;
+	padding-right: 20px;
+}
+
+p.menu_title {
+	font-size: 18px;
+	margin: 50px 0 0 100px;
+}
+
+/* IE用 */
+*:first-child+html div#menu a span.arrow {
+	float: none;
+	position: absolute; left:125px;
+	margin-top: -6px;
+}
+*html div#menu a span.arrow {
+	float: none;
+	position: absolute; left:125px;
+	margin-top: -6px;
+}
+
+div#menu a:hover{
+	color: #dddddd;
+}
+
+div#main_top p {
+	height:100px;
+	width:80px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-200px;
+	margin-left:-100px;
+	line-height: 2em;
+}
+
+div#category {
+	display: block;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	color: Yellow;
+	margin: 5px 0;
+	background-color: #2F4F4F;
+	text-align: center;
+}
+
+table.search_tbl {
+	margin-top: 15px;
+	border: 1px solid Black;
+}
+table.search_tbl tr th {
+	width: 84px;
+	padding: 5px;
+	border: 1px solid Black;
+	background-color: Black;
+	color: White;
+	font-weight: normal;
+	text-align: center;
+}
+table.search_tbl tr td {
+	width: 593px;
+	padding: 5px;
+	border: 1px solid Black;
+}
+table.general {
+	border: 1px solid #666666;
+	table-layout: fixed;
+	word-break: break-all;
+}
+table.general tr th {
+	padding: 5px;
+	border: 1px solid #666666;
+	background-color: #EEEEEE;
+	font-weight: bold;
+	text-align: center;
+}
+table.general tr td {
+	padding: 5px;
+	border: 1px solid #666666;
+	overflow: hidden;
+}
+table.general tr td input {
+	margin: -2px 0;
+}
+
+table.general2 {
+	border: 1px solid #666666;
+	table-layout: fixed;
+	word-break: break-all;
+	margin-bottom: 20px;
+}
+table.general2 tr th {
+	padding: 5px;
+	border: 1px solid #666666;
+	background-color: #EEEEEE;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 1em;
+}
+table.general2 tr td {
+	padding: 5px;
+	border: 1px solid #666666;
+}
+table.general2 tr td input {
+	margin: -2px 0;
+}
+table.general2 tr.bdr td {
+	background-color: LightGray;
+}
+
+hr.bdr {
+	height: 1px;
+	border: none;
+	border-top: 1px #000000 dashed;
+	margin: 20px 0;
+	width: 700px;
+}
+
+/* カスタム */
+span.smallf {
+	font-size: 9px;
+	font-family: "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "sans-serif";
+}
+
+div.main_msg {
+	width: 600px;
+	margin-left: 100px;
+	margin-top: 50px;
+}
+
+ul.main_msg {
+	margin: 10px 0 0 30px;
+	list-style: circle;
+	line-height: 1.4em;
+}
+
+div#admin_cts div#title {
+	display: block;
+	width: 700px;
+	height: 30px;
+	line-height: 30px;
+	color: Yellow;
+	background-color: Black;
+	text-align: left;
+	padding-left: 50px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+div#admin_cts div#subtitle {
+	display: block;
+	width: 700px;
+	height: 30px;
+	line-height: 30px;
+	color: White;
+	background-color: DarkGray;
+	text-align: left;
+	padding-left: 50px;
+	font-size: 14px;
+	font-weight: normal;
+	margin-top: 20px;
+}
+
+div#admin_cts div#details {
+	display: block;
+	width: 700px;
+	color: Black;
+	background-color: White;
+	text-align: left;
+	margin: 50px 0 0 20px;
+	font-size: 10pt;
+}
+
+div#admin_cts div#list {
+	margin-top: 20px;
+	display: block;
+	color: Black;
+	background-color: White;
+	text-align: left;
+	font-size: 10pt;
+}
+
+table.ubar th {
+	height: 40px;
+	background: #CCC;
+	text-align: left;
+	font-weight: bold;
+	border-bottom: 1px dotted black;
+}
+
+table.ubar td {
+	height: 35px;
+	background: url(../../images/trans_bg.gif) repeat-x;
+	border-bottom: 1px dotted black;
+}
+table.ubar tr.col2 td {
+	height: 60px;
+	background-position: bottom;
+}
+table.ubar tr.col3 td {
+	height: 80px;
+	background-position: bottom;
+}
+
+div.pt10 {
+	margin-top: 10px;
+}
+
+div#add_work {
+	margin-top: 20px;
+	width: 700px;
+}
+
+div#add_work div#calendar {
+	float: left;
+	width: 300px;
+	padding-left: 15px;
+}
+
+div#add_work div#calendar p {
+	text-align: center;
+	margin-bottom:5px;
+}
+
+div#add_work div#calendar a:link,a:active,a:visited {
+	text-decoration: underline;
+	color: navy;
+}
+
+div#add_work div#calendar a:hover {
+	text-decoration: none;
+	color: Red;
+}
+
+div#add_work div#model_add {
+	float: right;
+	width: 360px;
+	margin-left: 15px;
+	margin-top: 25px;
+}
+
+div#work_model_list table.ubar th, td {
+	padding-left: 1em;
+}
+
+div#add_work div#model_add input.submit {
+	margin: 10px 0 5px 100px;
+}
+
+.mg	{
+	width:720px;
+	background-color:#FFFFFF;
+}
+
+.mg1 {
+	width:160px;
+	height:160px;
+	padding:auto;
+	margin:6px;
+	float:left;
+	text-align:center;
+}
+.mg1 a {
+	width:160px;
+	height:160px;
+	padding:2px;
+	display:block;
+	background:#FFFFFF;
+	border:1px solid #CCCCCC;
+}
+.mg1 a:hover {
+	width:160px;
+	height:160px;
+	padding:2px;
+	display:block;
+	background:#e6f0d1;
+	border:1px solid #99CC33;
+}
+
+.mg2 {
+	width:160px;
+	height:160px;
+	padding:auto;
+	margin:6px;
+	float:left;
+	text-align:center;
+}
+.mg2 a {
+	width:160px;
+	height:142px;
+	padding:22px 2px;
+	display:block;
+	background:#FFFFFF;
+	border:1px solid #CCCCCC;
+}
+.mg2 a:hover {
+	width:160px;
+	height:142px;
+	padding:22px 2px;
+	display:block;
+	background:#e6f0d1;
+	border:1px solid #99CC33;
+}
+
+table.img_tbl tr {
+	background-color: white;
+}
+table.img_tbl tr td textarea.img {
+	font-size:1px;
+	color: black;
+	background-color: black;
+	border-style: solid;
+	border-color: black;
+	border-width: 0;
+	scrollbar-arrow-color: black;
+	scrollbar-face-color: black;
+	scrollbar-highlight-color: black;
+	scrollbar-3dlight-color: black;
+	scrollbar-track-color: black;
+	scrollbar-shadow-color: black;
+	scrollbar-darkshadow-color: black;
+}
+table.img_tbl tr td input {
+	font-size: 10px;
+	color: white;
+	background-color: black;
+	border-style: solid;
+	border-color: #CCC;
+	border-width: 1px;
+}
+div#admin_cts div#preview {
+	border: 1px solid #666;
+	padding: 15px;
+	width: 800px;
+	display: block;
+	margin-top: 20px;
+}
+div#admin_cts span.order {
+	font-size: 7px;
+}
+
+
+
+
+
+
